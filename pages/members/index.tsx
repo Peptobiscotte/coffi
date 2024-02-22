@@ -1,5 +1,5 @@
 export default function MembersPage() {
     return (
-      <h1 className="text-center">This is the Members Page</h1>
+      <h1 className="font-brico text-3xl">Members</h1>
     )
   }

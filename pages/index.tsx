@@ -1,7 +1,9 @@
+import HomeHeader from "@/components/home-components/home-header/home-header"
+
 export default function HomePage() {
 
   return (
-    <h1 className="text-center">Viscoffice dashboard</h1>
+    <HomeHeader />
   )
 }
 

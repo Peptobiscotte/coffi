@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import LayoutHeader from "./header";
 import LayoutFooter from "./footer";
 

@@ -2,9 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @font-face {
     font-family: Geo;
     src: url("../public/fonts/geographwebmedium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Brico;
+    src: url("../public/fonts/BricolageGrotesque_72pt-Medium.ttf") format("truetype");
 }
 
 html,

@@ -1,5 +1,5 @@
 export default function AgendaPage() {
     return (
-        <h1>Agenda</h1>
+        <h1 className="font-brico text-3xl">Agenda</h1>
     )
 }

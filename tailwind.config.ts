@@ -18,6 +18,7 @@ const config: Config = {
       },
       fontFamily: {
         geo: "Geo",
+        brico: "Brico",
       },
     },
   },
