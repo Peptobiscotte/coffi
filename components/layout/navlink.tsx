@@ -8,9 +8,6 @@ import { useRouter } from "next/router"
 
 export default function NavLink() {
     const router = useRouter()
-    console.log(router)
-
-    
 
     return (
             <nav>
