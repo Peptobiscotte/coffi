@@ -1,6 +1,7 @@
 import { MongoClient } from "mongodb"
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const host = process.env.DB_HOST
     const pass = process.env.DB_PASS
 
