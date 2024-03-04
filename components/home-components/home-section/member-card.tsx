@@ -8,7 +8,7 @@ export default function MemberCard(props: any) {
             <div className="flex gap-3 items-center">
                 <Avatar showFallback name={member.firstName}/>
                 <div className="text-sm">
-                    <p>{member.firstName}{member.lastName}</p>
+                    <p>{member.firstName} {member.lastName}</p>
                     <p className="text-slate-400">{member.email}</p>
                 </div>
             </div>            
