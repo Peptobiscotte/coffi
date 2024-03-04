@@ -6,7 +6,13 @@ import arrowUpSvg from '../../../public/arrow-up.svg'
 import layerSvg from '@/public/layers-two-01.svg'
 import pieChartImg from '@/public/images/pieChart.png'
 
-export default function MemberCards() {
+export default function MemberCards(props: any) {
+    const { allMembers } = props
+    let freePlanArr = []
+    
+    allMembers.map((member: any) => member.plan === 'free' ? freePlanArr.push(member) : '')
+    const active = allMembers.length - freePlanArr.length
+
     return(
         <div className="flex px-8 gap-6">
         <div className="flex gap-6 bg-white rounded-3xl border p-6 flex-1">
@@ -24,7 +30,7 @@ export default function MemberCards() {
                 </div>
                 <div className="flex justify-between">
                     <div className="flex flex-col gap-2">
-                        <h1 className="font-brico text-3xl">64</h1>
+                        <h1 className="font-brico text-3xl">{allMembers.length}</h1>
                     <div className="flex items-center">
                         <div className="gap-1 my-2 px-1.5 flex bg-green-50 border border-green-200 rounded-full  items-center text-sm mr-1">
                             <Image src={arrowUpSvg} alt="arrowUp"/><p className="font-geo text-green-700">36%</p>
@@ -55,7 +61,7 @@ export default function MemberCards() {
                 </div>
                 <div className="flex justify-between">
                     <div className="flex flex-col gap-2">
-                        <h1 className="font-brico text-3xl">56</h1>
+                        <h1 className="font-brico text-3xl">{active}</h1>
                     <div className="flex items-center">
                         <div className="gap-1 my-2 px-1.5 flex bg-green-50 border border-green-200 rounded-full  items-center text-sm mr-1">
                             <Image src={arrowUpSvg} alt="arrowUp"/><p className="font-geo text-green-700">41%</p>

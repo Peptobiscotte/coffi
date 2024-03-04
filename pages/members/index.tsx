@@ -2,12 +2,12 @@ import MembersHeader from "@/components/members-components/members-headers/heade
 import MembersMain from "@/components/members-components/members-section/MembersMain";
 import clientPromise from "@/lib/mongodb";
 
-export default function MembersPage( props: any) {
+export default function MembersPage(props: any) {
   const { members } = props
 
     return (
       <div>
-        <MembersHeader />
+        <MembersHeader allMembers={members}/>
         <MembersMain allMembers={members}/>
       </div>
     )
