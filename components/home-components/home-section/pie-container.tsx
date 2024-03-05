@@ -7,7 +7,9 @@ import arrowUpSvg from '../../../public/arrow-up.svg'
 import arrowDownSvg from '../../../public/arrow-down.svg'
 import ticketSvg from '../../../public/ticket-01.svg'
 
-export default function PieContainer() {
+export default function PieContainer(props: any) {
+    const { allMembers } = props
+
     return (
         <div className="flex px-8 gap-6">
             <div className="flex gap-6 bg-white rounded-3xl border p-6 flex-1">
@@ -56,7 +58,7 @@ export default function PieContainer() {
                     <div className="flex flex-col gap-2">
                         <h2 className="text-sm font-geo text-slate-400">Total members</h2>
                         <div className="flex justify-between">
-                            <h1 className="font-brico text-3xl">38</h1>
+                            <h1 className="font-brico text-3xl">{allMembers.length}</h1>
                             <div className="gap-1 my-2 px-1.5 flex bg-red-50 border border-red-200 rounded-full  items-center text-sm">
                             <Image src={arrowDownSvg} alt="arrowDown"/><p className="font-geo text-red-600">0.8%</p>
                             </div>

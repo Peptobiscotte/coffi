@@ -3,14 +3,18 @@ import trashSvg from '@/public/trash-01.svg'
 import bubbleSvg from '@/public/message-circle-01.svg'
 import editSvg from '@/public/edit-01.svg'
 import Image from "next/image";
+import Link from "next/link";
 
 export default function TableMember(props: any) {
     const { member } = props
+    const initials = member.firstName[0] + member.lastName[0]
 
     return(
         <tr className="border-b">
-            <td className="text-sm text-black flex items-center gap-2 py-4"><Avatar showFallback name='Sienna' />
+            <td className="text-sm text-black flex items-center gap-2 py-4"><Avatar showFallback name={initials} />
+                <Link href={`/members/${member._id}`}>
                 {member.firstName} {member.lastName}
+                </Link>
             </td>
             <td>{member.email}</td>
             <td>{member.plan}</td>

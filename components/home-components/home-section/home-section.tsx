@@ -8,7 +8,7 @@ export default function HomeSection(props: any) {
 
     return (
         <div className="flex flex-col gap-6">
-            <PieContainer />
+            <PieContainer allMembers={allMembers}/>
             <div className="flex px-8 gap-6">
                 <div>
                     <Turnover />

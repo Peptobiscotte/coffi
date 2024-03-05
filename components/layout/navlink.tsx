@@ -16,9 +16,9 @@ export default function NavLink() {
                         <Image src={homeSvg} alt="home svg" />
                         <Link href='/' className={router.pathname === '/' ? 'text-indigo-500' : ""}>Home</Link>
                     </li>
-                    <li className={router.pathname === '/members' ? 'flex gap-3 px-3 py-2 bg-stone-50 rounded-lg' : 'flex gap-3 px-3 py-2'}>
+                    <li className={router.pathname.includes('/members') ? 'flex gap-3 px-3 py-2 bg-stone-50 rounded-lg' : 'flex gap-3 px-3 py-2'}>
                         <Image src={membersSvg} alt="members svg" />
-                        <Link href='/members' className={router.pathname === '/members' ? 'text-indigo-500' : ""}>Members</Link>
+                        <Link href='/members' className={router.pathname.includes('/members') ? 'text-indigo-500' : ""}>Members</Link>
                     </li>
                     <li className={router.pathname === '/venue' ? 'flex gap-3 px-3 py-2 bg-stone-50 rounded-lg' : 'flex gap-3 px-3 py-2'}>
                         <Image src={venueSvg} alt="venue svg" />
