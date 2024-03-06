@@ -11,7 +11,10 @@ export default function TableMember(props: any) {
 
     return(
         <tr className="border-b">
-            <td className="text-sm text-black flex items-center gap-2 py-4"><Avatar showFallback name={initials} />
+            <td className="text-sm text-black flex items-center gap-2 py-4">
+                <Link href={`/members/${member._id}`}>
+                    <Avatar showFallback name={initials} />
+                </Link>
                 <Link href={`/members/${member._id}`}>
                 {member.firstName} {member.lastName}
                 </Link>
@@ -21,7 +24,7 @@ export default function TableMember(props: any) {
             <td>November 16, 2023</td>
             <td>
                 <div className="flex justify-around">
-                    <button><Image src={editSvg} alt="edit"/></button>
+                    <button><Link href={`/members/${member._id}`}><Image src={editSvg} alt="edit"/></Link></button>
                     <button><Image src={bubbleSvg} alt="comment"/></button>
                     <button><Image src={trashSvg} alt="delete"/></button>                    
                 </div>

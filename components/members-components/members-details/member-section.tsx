@@ -3,8 +3,9 @@ import {Avatar} from "@nextui-org/react";
 import { useRef } from 'react';
 import cloudSvg from '@/public/upload-cloud-02.svg'
 import Image from "next/image";
+import memberDetail from "@/pages/members/[memberId]";
 
-export default function MemberDetailSection() {
+export default function MemberDetailSection({member}: any) {
 const firstNameInputRef = useRef<HTMLInputElement>(null)
   const lastNameInputRef = useRef<HTMLInputElement>(null)
   const birthInputRef = useRef<HTMLInputElement>(null)
@@ -23,33 +24,33 @@ const firstNameInputRef = useRef<HTMLInputElement>(null)
                   <div className="flex gap-6">
                     <div className="flex flex-col gap-1.5 flex-1">
                       <label htmlFor='fname'>First name</label>
-                      <input type='text' required id='fname' ref={firstNameInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
+                      <input type='text' defaultValue={member.firstName} required id='fname' ref={firstNameInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
                     </div>
                     <div className="flex flex-col gap-1.5 flex-1">
                       <label htmlFor='lname'>Last name</label>
-                      <input type='text' required id='lname' ref={lastNameInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
+                      <input type='text' defaultValue={member.lastName} required id='lname' ref={lastNameInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
                     </div>
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor='birth'>Birthdate</label>
-                    <input type='text' required id='birth' placeholder='DD/MM/YYYY' ref={birthInputRef} className="border rounded-lg px-3.5 py-2.5"/>
+                    <input type='text' defaultValue={member.birthdate} required id='birth'  ref={birthInputRef} className="border rounded-lg px-3.5 py-2.5"/>
                   </div>
                   <div className="flex gap-6">
                     <div className="flex flex-col gap-1.5 flex-1">
                       <label htmlFor='email'>Email address</label>
-                      <input type='email' required id='email' ref={emailInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
+                      <input type='email' defaultValue={member.email} required id='email' ref={emailInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
                     </div>
                     <div className="flex flex-col gap-1.5 flex-1">
                       <label htmlFor='phone'>Phone number</label>
-                      <input type='tel' required id='phone' ref={phoneInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
+                      <input type='tel' defaultValue={member.phone} required id='phone' ref={phoneInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
                     </div>
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <h1>Plan</h1>
-                    <Select variant="bordered" ref={planInputRef} className="font-geo">
-                      <SelectItem key='free' className="font-geo">Free</SelectItem>
-                      <SelectItem key='premium' className="font-geo">Premium</SelectItem>
-                      <SelectItem key='desk' className="font-geo">Desk</SelectItem>
+                    <Select label={`Current plan : ${member.plan}`} variant="bordered" ref={planInputRef} className="font-geo">
+                      <SelectItem key='free' className="font-geo text-black">Free</SelectItem>
+                      <SelectItem key='premium' className="font-geo text-black">Premium</SelectItem>
+                      <SelectItem key='desk' className="font-geo text-black">Desk</SelectItem>
                     </Select>
                   </div>
                   <div className="flex gap-5">
