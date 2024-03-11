@@ -8,9 +8,13 @@ export default function MemberCard(props: any) {
     return (
         <div className="flex justify-between p-4 font-geo border-b">
             <div className="flex gap-3 items-center">
-                <Avatar showFallback name={initials}/>
+                    <Link href={`/members/${member._id}`}>
+                        <Avatar showFallback name={initials}/>
+                    </Link>
                 <div className="text-sm">
-                    <p>{member.firstName} {member.lastName}</p>
+                    <Link href={`/members/${member._id}`}>
+                        <p>{member.firstName} {member.lastName}</p>
+                    </Link>
                     <p className="text-slate-400">{member.email}</p>
                 </div>
             </div>            
