@@ -6,12 +6,35 @@ import Image from "next/image";
 import memberDetail from "@/pages/members/[memberId]";
 
 export default function MemberDetailSection({member}: any) {
-const firstNameInputRef = useRef<HTMLInputElement>(null)
+  const firstNameInputRef = useRef<HTMLInputElement>(null)
   const lastNameInputRef = useRef<HTMLInputElement>(null)
   const birthInputRef = useRef<HTMLInputElement>(null)
   const emailInputRef = useRef<HTMLInputElement>(null)
   const phoneInputRef = useRef<HTMLInputElement>(null)
-  const planInputRef = useRef<HTMLSelectElement>(null)
+
+
+  async function submitHandler(e: any) {
+    e.preventDefault()
+
+    const newMemberData = {
+      _id: member._id,
+      firstName: firstNameInputRef.current?.value,
+      lastName: lastNameInputRef.current?.value,
+      birthdate: birthInputRef.current?.value,
+      email: emailInputRef.current?.value,
+      phone: phoneInputRef.current?.value,   
+    }
+
+    await fetch('/api/update-members', {
+      method: 'PUT',
+      body: JSON.stringify(newMemberData),
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+  }
+
+  
 
     return (
         <div className="flex p-8 gap-8">
@@ -20,38 +43,44 @@ const firstNameInputRef = useRef<HTMLInputElement>(null)
                 <h2 className="text-slate-400">Update member photo and personal details.</h2>
             </div>
             <div className="flex-1">
-            <form className="flex flex-col gap-6 font-geo p-6 rounded-2xl bg-white border">
+            <form onSubmit={submitHandler} className="flex flex-col gap-6 font-geo p-6 rounded-2xl bg-white border">
                   <div className="flex gap-6">
                     <div className="flex flex-col gap-1.5 flex-1">
                       <label htmlFor='fname'>First name</label>
-                      <input type='text' defaultValue={member.firstName} required id='fname' ref={firstNameInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
+                      <input type='text' defaultValue={member.firstName} required id='fname' ref={firstNameInputRef} className="border rounded-2xl px-3.5 py-2.5 font-light"/>
                     </div>
                     <div className="flex flex-col gap-1.5 flex-1">
                       <label htmlFor='lname'>Last name</label>
-                      <input type='text' defaultValue={member.lastName} required id='lname' ref={lastNameInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
+                      <input type='text' defaultValue={member.lastName} required id='lname' ref={lastNameInputRef} className="border rounded-2xl px-3.5 py-2.5 font-light"/>
                     </div>
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor='birth'>Birthdate</label>
-                    <input type='text' defaultValue={member.birthdate} required id='birth'  ref={birthInputRef} className="border rounded-lg px-3.5 py-2.5"/>
+                    <input type='text' defaultValue={member.birthdate} required id='birth'  ref={birthInputRef} className="border rounded-2xl px-3.5 py-2.5"/>
                   </div>
                   <div className="flex gap-6">
                     <div className="flex flex-col gap-1.5 flex-1">
                       <label htmlFor='email'>Email address</label>
-                      <input type='email' defaultValue={member.email} required id='email' ref={emailInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
+                      <input type='email' defaultValue={member.email} required id='email' ref={emailInputRef} className="border rounded-2xl px-3.5 py-2.5 font-light"/>
                     </div>
                     <div className="flex flex-col gap-1.5 flex-1">
                       <label htmlFor='phone'>Phone number</label>
-                      <input type='tel' defaultValue={member.phone} required id='phone' ref={phoneInputRef} className="border rounded-lg px-3.5 py-2.5 font-light"/>
+                      <input type='tel' defaultValue={member.phone} required id='phone' ref={phoneInputRef} className="border rounded-2xl px-3.5 py-2.5 font-light"/>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-1.5">
-                    <h1>Plan</h1>
-                    <Select label={`Current plan : ${member.plan}`} variant="bordered" ref={planInputRef} className="font-geo">
-                      <SelectItem key='free' className="font-geo text-black">Free</SelectItem>
-                      <SelectItem key='premium' className="font-geo text-black">Premium</SelectItem>
-                      <SelectItem key='desk' className="font-geo text-black">Desk</SelectItem>
-                    </Select>
+                  <div className="flex gap-6">
+                    <div className="flex flex-col gap-1.5 flex-1">
+                      <h1>Plan</h1>
+                      <p className="border rounded-2xl px-3.5 py-2.5 font-light bg-gray-100">
+                        {member.plan}
+                      </p>
+                    </div>
+                    <div className="flex flex-col gap-1.5 flex-1">
+                      <h1>Last visit</h1>
+                      <p className="border rounded-2xl px-3.5 py-2.5 font-light bg-gray-100">
+                        12/03/2024
+                      </p>
+                    </div>
                   </div>
                   <div className="flex gap-5">
                     <Avatar showFallback className="h-16 w-16"/>
