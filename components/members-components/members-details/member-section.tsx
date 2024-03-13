@@ -4,6 +4,8 @@ import { useRef } from 'react';
 import cloudSvg from '@/public/upload-cloud-02.svg'
 import Image from "next/image";
 import memberDetail from "@/pages/members/[memberId]";
+import { toast } from "sonner";
+import check from '@/public/check-circle.svg'
 
 export default function MemberDetailSection({member}: any) {
   const firstNameInputRef = useRef<HTMLInputElement>(null)
@@ -32,6 +34,17 @@ export default function MemberDetailSection({member}: any) {
           'Content-Type': 'application/json'
       }
   })
+
+  toast(<div className="flex gap-1 justify-start">
+            <Image src={check} alt="check"/>
+            <p>Changes saved!</p>
+        </div>, {
+            duration: 3000,
+            unstyled: true,
+            classNames: {
+                toast: 'bg-indigo-500 text-white rounded-3xl px-4 py-2 font-geo'
+            }
+        })
   }
 
   

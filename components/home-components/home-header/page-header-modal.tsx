@@ -3,9 +3,13 @@ import Image from "next/image";
 import plusSvg from '../../../public/plus.svg'
 import {Select, SelectSection, SelectItem} from "@nextui-org/react";
 import { useRef } from 'react';
-
+import { useRouter } from "next/router";
+import { toast } from "sonner";
+import check from '@/public/check-circle.svg'
 
 export default function PageHeaderModal() {
+
+  const router = useRouter()
   
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const firstNameInputRef = useRef<HTMLInputElement>(null)
@@ -34,7 +38,18 @@ export default function PageHeaderModal() {
           'Content-Type': 'application/json'
       }
   })
- 
+
+  router.push('')
+  toast(<div className="flex gap-1 justify-start">
+            <Image src={check} alt="check"/>
+            <p>New member added!</p>
+        </div>, {
+            duration: 3000,
+            unstyled: true,
+            classNames: {
+                toast: 'bg-emerald-500 text-white rounded-3xl px-4 py-2 font-geo'
+            }
+        })
   }
 
 
