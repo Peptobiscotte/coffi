@@ -3,7 +3,7 @@ import HomeTabCalendar from "./home-tabs-calendar";
 import { useState } from "react";
 
 export default function HomeTabs() {
-    const [isPressed, setIsPressed] = useState(null)
+    const [isPressed, setIsPressed] = useState(1)
 
     function pressHandler(id: any) {
         setIsPressed(id)

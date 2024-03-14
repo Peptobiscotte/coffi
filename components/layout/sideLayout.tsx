@@ -3,7 +3,7 @@ import LayoutFooter from "./footer";
 
 export default function SideLayout() {
     return (
-        <div className="basis-1/5 bg-white border-r border-stone-200 flex flex-col justify-between h-screen">
+        <div className="basis-1/5 bg-white border-r border-stone-200 flex flex-col justify-between h-screen sticky top-0">
             <LayoutHeader />
             <LayoutFooter />
         </div>
