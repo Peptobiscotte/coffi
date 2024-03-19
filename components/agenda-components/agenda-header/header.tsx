@@ -5,7 +5,8 @@ import rowSvg from '@/public/rows-01.svg'
 import columnSvg from '@/public/columns-03.svg'
 import Image from "next/image";
 
-export default function Header() {
+export default function Header(props:any) {
+    const { members } = props
     const [isPressed, setIsPressed] = useState(1)
     const [isPressed1, setIsPressed1] = useState(4)
 
@@ -27,15 +28,15 @@ export default function Header() {
                     <h2 className="font-geo text-slate-400">Create & organize your cowork events</h2>
                 </div>
                 <div>
-                    <EventModal />
+                    <EventModal members={members}/>
                 </div>
             </div>
             <div className="flex justify-between">
                 <div>
                     <ButtonGroup className="font-geo">
-                        <Button className={isPressed === 1 ? active : inactive} onClick={()=>pressHandler(1)}>12 months</Button>
-                        <Button className={isPressed === 2 ? active : inactive} onClick={()=>pressHandler(2)}>30 days</Button>
-                        <Button className={isPressed === 3 ? active : inactive} onClick={()=>pressHandler(3)}>7 days</Button>
+                        <Button className={isPressed === 1 ? active : inactive} onClick={()=>pressHandler(1)}>Today</Button>
+                        <Button className={isPressed === 2 ? active : inactive} onClick={()=>pressHandler(2)}>7 next days</Button>
+                        <Button className={isPressed === 3 ? active : inactive} onClick={()=>pressHandler(3)}>30 next days</Button>
                     </ButtonGroup>
                 </div>
                 <div>
