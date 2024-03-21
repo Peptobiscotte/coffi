@@ -1,19 +1,33 @@
 import EventCard from "./event-card";
 
-export default function Section() {
+export default function Section(props:any) {
+    const { events } = props
+
+    let todaysEvents: any = []
+    let nextEvents: any = []
+
+    events.map((event:any) => {
+        if(event.date === '2024-04-28') {
+            todaysEvents.push(event)
+        } else {
+            nextEvents.push(event)
+        }
+    }
+    )
+
     return (
         <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
-                <h1 className="font-geo">Today</h1>
-                <EventCard />
-                <EventCard />
+                <h1 className="font-geo">Next events</h1>
+                {todaysEvents.map((event:any) => 
+                <EventCard key={event._id} data={event}/>
+                )}
             </div>
             <div className="flex flex-col gap-2">
-                <h1 className="font-geo">Next week</h1>
-                <EventCard />
-                <EventCard />
-                <EventCard />
-                <EventCard />
+                <h1 className="font-geo">Nexter events</h1>
+                {nextEvents.map((event:any) => 
+                <EventCard key={event._id} data={event}/>
+                )}
             </div>
         </div>
     )

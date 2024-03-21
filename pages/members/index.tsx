@@ -19,6 +19,8 @@ export default function MembersPage(props: any) {
       const db = client.db()
       const allMembers = await db.collection("members").find({}).toArray();
   
+      
+
       return {
           props: { members : JSON.parse(JSON.stringify(allMembers))}
       }

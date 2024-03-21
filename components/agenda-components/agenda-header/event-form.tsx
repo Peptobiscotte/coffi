@@ -8,8 +8,12 @@ import { useRef, useState } from 'react';
 import { useRouter } from "next/router";
 import {parseDate} from '@internationalized/date';
 import {I18nProvider} from 'react-aria';
+import { toast } from "sonner";
+import check from '@/public/check-circle.svg'
 
 export default function EventModal(props:any) {
+  const router = useRouter()
+
   const { members } = props
   
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -39,6 +43,25 @@ export default function EventModal(props:any) {
       members: memberValues,
       date: dateValue?.toString()
     }
+
+    await fetch('/api/new-event', {
+      method: 'POST',
+      body: JSON.stringify(eventData),
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+  router.push('/agenda')
+  toast(<div className="flex gap-1 justify-start">
+            <Image src={check} alt="check"/>
+            <p>New event created!</p>
+        </div>, {
+            duration: 3000,
+            unstyled: true,
+            classNames: {
+                toast: 'bg-emerald-500 text-white rounded-3xl px-4 py-2 font-geo'
+            }
+        })
   }
 
   return (
@@ -94,7 +117,7 @@ export default function EventModal(props:any) {
                   </DateField>
                     </I18nProvider>
                   <div className="flex justify-end mt-10">
-                    <button className="bg-indigo-500 rounded-xl text-white text-sm p-2" onClick={onClose}>Add Member</button>
+                    <button className="bg-indigo-500 rounded-xl text-white text-sm p-2" onClick={onClose}>Add Event</button>
                   </div>
                 </form>
               </ModalBody>

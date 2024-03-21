@@ -20,7 +20,9 @@ export async function getStaticProps({params}: any) {
       const client = await clientPromise;
       const db = client.db()
       const member = await db.collection("members").findOne({ _id: new ObjectId(memberId)});
-  
+        
+     
+      
       return {
           props: { member : JSON.parse(JSON.stringify(member))}
       }
@@ -35,6 +37,8 @@ export async function getStaticPaths() {
     const db = client.db()
     const member = await db.collection("members").findOne({})
     const data = JSON.parse(JSON.stringify(member?._id))
+
+    
 
     return {
         paths : [
