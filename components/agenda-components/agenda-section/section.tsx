@@ -3,6 +3,12 @@ import EventCard from "./event-card";
 export default function Section(props:any) {
     const { events } = props
 
+    function sortDate(a:any, b:any) {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+    }
+
+    events.sort(sortDate)
+
     let todaysEvents: any = []
     let nextEvents: any = []
 

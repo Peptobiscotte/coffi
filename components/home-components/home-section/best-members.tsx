@@ -10,7 +10,7 @@ export default function BestMembers(props: any) {
    
 
     return (
-        <div className="flex flex-col gap-5 p-6 bg-white border rounded-3xl grow">
+        <div className="flex flex-col gap-5 p-6 bg-white border rounded-3xl grow self-start">
             <div className='flex justify-between'>
                 <div className='flex'>
                     <div className='flex justify-center p-2 mr-2 bg-stone-100 rounded-lg'>

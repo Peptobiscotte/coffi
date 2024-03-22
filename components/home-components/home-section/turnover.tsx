@@ -5,7 +5,7 @@ import chartBar from '../../../public/images/chartbar.png'
  
 export default function Turnover() {
     return (
-        <div className="flex flex-col gap-5 bg-white border rounded-3xl p-6 grow">
+        <div className="flex flex-col gap-5 bg-white border rounded-3xl p-6">
             <div className='flex'>
                 <div  className="flex justify-center p-2 mr-2 bg-stone-100 rounded-lg">
                     <Image src={bankSvg} alt="bank Svg"/>

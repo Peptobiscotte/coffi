@@ -4,15 +4,15 @@ import Turnover from "./turnover";
 import UpcomingEvents from "./upcoming-events";
 
 export default function HomeSection(props: any) {
-    const { allMembers } = props
+    const { allMembers, events } = props
 
     return (
         <div className="flex flex-col gap-6">
             <PieContainer allMembers={allMembers}/>
             <div className="flex px-8 gap-6">
-                <div>
+                <div className="flex flex-col gap-6">
                     <Turnover />
-                    <UpcomingEvents />
+                    <UpcomingEvents events={events}/>
                 </div>
                 <BestMembers allMembers={allMembers}/>
             </div>
