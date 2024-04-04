@@ -4,13 +4,6 @@ import {Avatar, AvatarGroup} from "@nextui-org/react";
 
 export default function EventCard(props:any) {
     const { event } = props
-    
-    const options = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      };
 
     const dateExact = new Date(event.date)
     const formattedDate = dateExact.toLocaleString('en-US', {    
