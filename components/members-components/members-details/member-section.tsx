@@ -1,19 +1,26 @@
+'use client'
+
 import {Select, SelectSection, SelectItem} from "@nextui-org/react";
 import {Avatar} from "@nextui-org/react";
 import { useRef } from 'react';
 import cloudSvg from '@/public/upload-cloud-02.svg'
 import Image from "next/image";
-import memberDetail from "@/pages/members/[memberId]";
 import { toast } from "sonner";
 import check from '@/public/check-circle.svg'
+import { useRouter } from "next/navigation";
+
+
 
 export default function MemberDetailSection({member}: any) {
+  const imageURL = `https://mycoffibucket.s3.eu-west-3.amazonaws.com/userImg/${member.imageKey}`
+
   const firstNameInputRef = useRef<HTMLInputElement>(null)
   const lastNameInputRef = useRef<HTMLInputElement>(null)
   const birthInputRef = useRef<HTMLInputElement>(null)
   const emailInputRef = useRef<HTMLInputElement>(null)
   const phoneInputRef = useRef<HTMLInputElement>(null)
 
+  const router = useRouter()
 
   async function submitHandler(e: any) {
     e.preventDefault()
@@ -27,13 +34,15 @@ export default function MemberDetailSection({member}: any) {
       phone: phoneInputRef.current?.value,   
     }
 
-    await fetch('/api/update-members', {
-      method: 'PUT',
+    await fetch('/api/updateMember', {
+      method: 'PATCH',
       body: JSON.stringify(newMemberData),
       headers: {
           'Content-Type': 'application/json'
       }
   })
+
+  router.push('/members')
 
   toast(<div className="flex gap-1 justify-start">
             <Image src={check} alt="check"/>
@@ -96,7 +105,7 @@ export default function MemberDetailSection({member}: any) {
                     </div>
                   </div>
                   <div className="flex gap-5">
-                    <Avatar showFallback className="h-16 w-16"/>
+                    <Avatar showFallback className="h-16 w-16" src={imageURL}/>
                     <div className="border rounded-2xl flex-1  py-6 px-8 text-sm text-slate-400 flex flex-col items-center">
                         <div>
                             <Image src={cloudSvg} alt="cloud svg" className="mb-3"/>

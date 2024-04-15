@@ -1,3 +1,5 @@
+'use client'
+
 import {Button, ButtonGroup} from "@nextui-org/react";
 import HomeTabCalendar from "./home-tabs-calendar";
 import { useState } from "react";

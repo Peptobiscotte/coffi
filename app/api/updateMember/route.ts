@@ -1,13 +1,12 @@
 import { MongoClient } from "mongodb"
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { ObjectId } from "mongodb"
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export async function PATCH(req: any, res:any) {
     const host = process.env.DB_HOST
     const pass = process.env.DB_PASS
 
-    if(req.method === 'PUT') {
-        const data = req.body
+    try {
+        const data = await req.json()
         const objectId = new ObjectId(data._id)
 
        const client = await MongoClient.connect(`mongodb+srv://${host}:${pass}@cluster0.bqzxlqw.mongodb.net/members?retryWrites=true&w=majority`)
@@ -15,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
        const meetupsCollection = db.collection('members')
 
-       const result = await meetupsCollection.updateOne( { _id : objectId },
+        await meetupsCollection.updateOne( { _id : objectId },
         {
             $set: {
                 firstName: data.firstName,
@@ -26,9 +25,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
         })
 
-       console.log(result)
+       
        client.close()
 
-       res.status(201).json({ message: 'Member updated!' })
+       return Response.json({ 'message' : objectId }) 
+    } catch(error) {
+        console.error(error)
+        return Response.json({ 'message' : 'FAILURE' }) 
     }
 }

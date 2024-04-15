@@ -6,7 +6,6 @@ import NavLink from './navlink';
 import Link from 'next/link';
 
 
-
 export default function LayoutHeader() {
     return (
         <div className='flex flex-col pt-8 gap-6'>
@@ -19,7 +18,7 @@ export default function LayoutHeader() {
                 </Link>
             </div> 
             <div className='px-6'>
-            <Input type="search" variant='bordered' radius='lg' label="Search" />
+                <Input type="search" variant='bordered' radius='lg' label="Search" />
             </div>
             <div className='px-4'>
                 <NavLink />

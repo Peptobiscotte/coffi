@@ -1,17 +1,47 @@
+'use client'
+
 import Image from "next/image"
 import clockSvg from '@/public/clock.svg'
 import {Avatar, AvatarGroup} from "@nextui-org/react";
 import editSvg from '@/public/edit-01.svg'
 import pinSvg from "@/public/marker-pin-01.svg"
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
+import { useRouter } from "next/navigation";
+import trashSvg from '@/public/trash-01.svg'
 
 export default function EventCard(props:any) {
-    const { data } = props
+    const {isOpen, onOpen, onOpenChange} = useDisclosure();
+    const { data, members } = props
+    const router = useRouter()
+
+    const id = data._id
+
+    const participatingMembers = data.members
+    
+    const membresComplets = participatingMembers.map((memberName:any) => {
+        const membreCorrespondant = members.find((member:any) => member.firstName === memberName);
+       
+        return membreCorrespondant || null;
+    });
     
     const datePrim = data.date 
     const dateFull = new Date(datePrim)
     const dayWeekNumber = dateFull.getDate()
     const dayWeekString = dateFull.toDateString()
     const justDay = dayWeekString.slice(0, dayWeekString.indexOf(' ')).toUpperCase()
+
+    async function buttonHandler() {
+
+        await fetch(`/api/deleteEvent?id=${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        router.push('/agenda')
+        router.refresh()
+    }
     
 
     return (
@@ -27,18 +57,41 @@ export default function EventCard(props:any) {
                         <Image src={clockSvg} alt="clock"/>
                         {data.from} - {data.to}
                     </p>
-                    <AvatarGroup isBordered max={3} size="sm" className="justify-start">
-                        {data.members.map((member:any) =>
-                            <Avatar showFallback size="sm" name={member} key={member}/>
-                        )}
-                    </AvatarGroup>
+                    <AvatarGroup isBordered max={3} size='sm'>
+                   {membresComplets.map((member:any, i:any) => (
+                        <Avatar key={member._id} src={`https://mycoffibucket.s3.eu-west-3.amazonaws.com/userImg/${member.imageKey}`}/>
+                   ))}
+                </AvatarGroup>
                 </div>
                 <div className="flex gap-1 items-center">
                     <Image src={pinSvg} alt="pin"/>
                     <p className="text-slate-500">{data.location}</p>
                 </div>
             </div>
-            <div>
+            <div className="flex">
+            <Button onPress={onOpen} variant="bordered" className="border-none"><Image src={trashSvg} alt="trash"/></Button>
+                    <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+                        <ModalContent>
+                            {(onClose) => (
+                                <>
+                                    <ModalHeader className="flex flex-col gap-1"></ModalHeader>
+                                    <ModalBody>
+                                        <p className="font-geo"> 
+                                            Delete event ?
+                                        </p>
+                                    </ModalBody>
+                                    <ModalFooter>
+                                        <Button color="danger" variant="light" onPress={onClose}>
+                                        Cancel
+                                        </Button>
+                                        <Button color="primary" onPress={buttonHandler}>                                                                       
+                                        Delete
+                                        </Button>
+                                    </ModalFooter>
+                                </>
+                            )}
+                            </ModalContent>
+                        </Modal>
                 <button className="flex gap-2 border rounded-3xl py-2 px-3.5">
                     <Image src={editSvg} alt="edit"/>
                     <p className="text-slate-500">Edit</p>

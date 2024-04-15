@@ -1,3 +1,5 @@
+'use client'
+
 import EventModal from "./event-form";
 import {Button, ButtonGroup} from "@nextui-org/react";
 import { useState } from "react";

@@ -3,14 +3,16 @@ import Image from 'next/image'
 import {Avatar, AvatarGroup} from "@nextui-org/react";
 
 export default function EventCard(props:any) {
-    const { event } = props
+
+    const { event, members } = props
+    const participatingMembers = event.members
     
-    const options = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      };
+    const membresComplets = participatingMembers.map((memberName:any) => {
+        const membreCorrespondant = members.find((member:any) => member.firstName === memberName);
+       
+        return membreCorrespondant || null;
+    });
+
 
     const dateExact = new Date(event.date)
     const formattedDate = dateExact.toLocaleString('en-US', {    
@@ -30,9 +32,9 @@ export default function EventCard(props:any) {
             </div>
             <div className='flex'>
                 <AvatarGroup isBordered max={3} size='sm'>
-                    {event.members.map((member:any, i:number) =>
-                        <Avatar key={member+i} showFallback name={member}/>
-                    )}
+                   {membresComplets.map((member:any, i:any) => (
+                        <Avatar key={member._id} src={`https://mycoffibucket.s3.eu-west-3.amazonaws.com/userImg/${member.imageKey}`}/>
+                   ))}
                 </AvatarGroup>
             </div>
         </div>
