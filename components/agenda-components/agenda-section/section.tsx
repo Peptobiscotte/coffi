@@ -1,7 +1,7 @@
 import EventCard from "./event-card";
 
 export default function Section(props:any) {
-    const { events } = props
+    const { events, members } = props
 
     function sortDate(a:any, b:any) {
         return new Date(a.date).getTime() - new Date(b.date).getTime();
@@ -26,13 +26,13 @@ export default function Section(props:any) {
             <div className="flex flex-col gap-2">
                 <h1 className="font-geo">Next events</h1>
                 {todaysEvents.map((event:any) => 
-                <EventCard key={event._id} data={event}/>
+                <EventCard key={event._id} data={event} members={members}/>
                 )}
             </div>
             <div className="flex flex-col gap-2">
                 <h1 className="font-geo">Nexter events</h1>
                 {nextEvents.map((event:any) => 
-                <EventCard key={event._id} data={event}/>
+                <EventCard key={event._id} data={event} members={members}/>
                 )}
             </div>
         </div>

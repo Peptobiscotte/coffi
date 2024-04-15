@@ -1,24 +1,28 @@
+'use client'
+
 import {Avatar} from "@nextui-org/react";
 import bubbleSvg from '@/public/message-circle-02.svg'
 import Image from "next/image";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/navigation";
 
 export default function MemberDetailHeader({member}: any) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const router = useRouter()
+    const id = member._id
+    const imageURL = `https://mycoffibucket.s3.eu-west-3.amazonaws.com/userImg/${member.imageKey}`
 
     async function buttonHandler() {
 
-        await fetch('/api/delete-member', {
-            method: 'POST',
-            body: JSON.stringify(member._id),
+        await fetch(`/api/deleteMember?id=${id}`, {
+            method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             }
         })
 
         router.push('/members')
+        router.refresh()
     }
 
     return (
@@ -26,7 +30,7 @@ export default function MemberDetailHeader({member}: any) {
             <div className="h-40 bg-gradient-to-r from-amber-500/20 to-indigo-500/20"></div>
             <div className="flex justify-between p-8 -mt-16">
                 <div className="flex gap-6">
-                    <Avatar showFallback className="w-40 h-40"/>
+                    <Avatar showFallback className="w-40 h-40" src={imageURL}/>
                     <div className="flex flex-col justify-center">
                         <h1 className="text-3xl font-brico">{member.firstName} {member.lastName}</h1>
                         <h2 className="text-base font-geo text-slate-400">{member.email}</h2>

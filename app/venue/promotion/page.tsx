@@ -1,3 +1,5 @@
+'use client'
+
 import HeaderLayout from "@/components/venue-components/header-layout";
 import iconwrap from '@/public/images/Iconwrap.png'
 import iconwrap1 from '@/public/images/Icon wrap(1).png'

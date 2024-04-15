@@ -1,10 +1,13 @@
+'use client'
+
 import Image from "next/image"
 import trashSvg from '@/public/trash-02.svg'
-import { useRouter } from "next/router"
+import { useRouter, usePathname } from "next/navigation"
 import Link from "next/link"
 
 export default function HeaderLayout() {
     const router = useRouter()
+    const pathName = usePathname()
 
     return (
         <div className="flex flex-col px-8 pt-10 gap-8">
@@ -22,10 +25,10 @@ export default function HeaderLayout() {
                 
             </div>
             <div className="flex gap-1 border rounded-xl bg-white p-1 font-geo text-slate-500 text-sm">
-                <div className={router.pathname === '/venue' ? 'bg-indigo-500 px-3 py-2 text-white rounded-xl' : 'px-3 py-2'}><Link href='/venue'>General</Link></div>
-                <div className={router.pathname === '/venue/infos' ? 'bg-indigo-500 px-3 py-2 text-white rounded-xl' : 'px-3 py-2'}><Link href='/venue/infos'>Practical infos</Link></div>
-                <div className={router.pathname === '/venue/photos' ? 'bg-indigo-500 px-3 py-2 text-white rounded-xl' : 'px-3 py-2'}><Link href='/venue/photos'>Photos</Link></div>
-                <div className={router.pathname === '/venue/promotion' ? 'bg-indigo-500 px-3 py-2 text-white rounded-xl' : 'px-3 py-2'}><Link href='/venue/promotion'>Promotion</Link></div>
+                <div className={pathName === '/venue' ? 'bg-indigo-500 px-3 py-2 text-white rounded-xl' : 'px-3 py-2'}><Link href='/venue'>General</Link></div>
+                <div className={pathName === '/venue/infos' ? 'bg-indigo-500 px-3 py-2 text-white rounded-xl' : 'px-3 py-2'}><Link href='/venue/infos'>Practical infos</Link></div>
+                <div className={pathName === '/venue/photos' ? 'bg-indigo-500 px-3 py-2 text-white rounded-xl' : 'px-3 py-2'}><Link href='/venue/photos'>Photos</Link></div>
+                <div className={pathName === '/venue/promotion' ? 'bg-indigo-500 px-3 py-2 text-white rounded-xl' : 'px-3 py-2'}><Link href='/venue/promotion'>Promotion</Link></div>
             </div>
         </div>
     )

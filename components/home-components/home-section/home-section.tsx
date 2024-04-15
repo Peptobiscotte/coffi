@@ -12,7 +12,7 @@ export default function HomeSection(props: any) {
             <div className="flex px-8 gap-6">
                 <div className="flex flex-col gap-6">
                     <Turnover />
-                    <UpcomingEvents events={events}/>
+                    <UpcomingEvents events={events} members={allMembers}/>
                 </div>
                 <BestMembers allMembers={allMembers}/>
             </div>

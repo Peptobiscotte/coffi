@@ -4,7 +4,7 @@ import Link from 'next/link'
 import EventCard from './event-card'
 
 export default function UpcomingEvents(props:any) {
-    const { events } = props
+    const { events, members } = props
 
     function sortDate(a:any, b:any) {
         return new Date(a.date).getTime() - new Date(b.date).getTime();
@@ -25,7 +25,7 @@ export default function UpcomingEvents(props:any) {
             </div>
             <div>
                 {events.map((event:any) =>
-                    <EventCard key={event._id} event={event}/>
+                    <EventCard key={event._id} event={event} members={members}/>
                 )}
             </div>
         </div>

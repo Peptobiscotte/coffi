@@ -3,13 +3,14 @@ import Link from "next/link"
 
 export default function MemberCard(props: any) {
     const { member } = props
-    const initials = member.firstName[0] + member.lastName[0]
+    const imgURL = `https://mycoffibucket.s3.eu-west-3.amazonaws.com/userImg/${member.imageKey}`
+    // const initials = member.firstName[0] + member.lastName[0]
 
     return (
         <div className="flex justify-between p-4 font-geo border-b">
             <div className="flex gap-3 items-center">
                     <Link href={`/members/${member._id}`}>
-                        <Avatar showFallback name={initials}/>
+                        <Avatar src={imgURL}/>
                     </Link>
                 <div className="text-sm">
                     <Link href={`/members/${member._id}`}>
@@ -24,3 +25,5 @@ export default function MemberCard(props: any) {
         </div>
     )
 }
+
+{/* <Avatar showFallback name={initials}/> */}

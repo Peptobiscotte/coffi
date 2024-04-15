@@ -7,13 +7,13 @@ import Link from "next/link";
 
 export default function TableMember(props: any) {
     const { member } = props
-    const initials = member.firstName[0] + member.lastName[0]
+    const imgURL = `https://mycoffibucket.s3.eu-west-3.amazonaws.com/userImg/${member.imageKey}`
 
     return(
         <tr className="border-b">
             <td className="text-sm text-black flex items-center gap-2 py-4">
                 <Link href={`/members/${member._id}`}>
-                    <Avatar showFallback name={initials} />
+                    <Avatar showFallback name={member.firstName} src={imgURL} />
                 </Link>
                 <Link href={`/members/${member._id}`}>
                 {member.firstName} {member.lastName}

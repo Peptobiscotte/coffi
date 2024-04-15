@@ -1,5 +1,5 @@
 {
-  "name": "coffi",
+  "name": "coffi-app-router",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,16 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.2.9",
-    "antd": "^5.14.1",
-    "framer-motion": "^11.0.5",
-    "mongodb": "^6.3.0",
-    "next": "14.1.0",
+    "@aws-sdk/client-s3": "^3.549.0",
+    "@nextui-org/react": "^2.2.10",
+    "framer-motion": "^11.0.25",
+    "mongodb": "^6.5.0",
+    "next": "14.1.4",
     "react": "^18",
     "react-aria-components": "^1.1.1",
     "react-dom": "^18",
-    "react-time-picker": "^6.6.0",
-    "sonner": "^1.4.3"
+    "sonner": "^1.4.41",
+    "uid": "^2.0.2"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -26,7 +26,7 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0",
+    "eslint-config-next": "14.1.4",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"

@@ -1,11 +1,12 @@
+
+
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
 import {Select, SelectSection, SelectItem} from "@nextui-org/react";
 import plusSvg from '@/public/plus.svg'
 import Image from "next/image";
-import DatePicker from "./date-picker";
 import {DateField, Label, DateInput, DateSegment} from 'react-aria-components';
 import { useRef, useState } from 'react';
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import {parseDate} from '@internationalized/date';
 import {I18nProvider} from 'react-aria';
 import { toast } from "sonner";
@@ -44,7 +45,7 @@ export default function EventModal(props:any) {
       date: dateValue?.toString()
     }
 
-    await fetch('/api/new-event', {
+    await fetch('/api/newEvent', {
       method: 'POST',
       body: JSON.stringify(eventData),
       headers: {

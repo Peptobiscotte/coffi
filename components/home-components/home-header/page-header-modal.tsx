@@ -1,13 +1,37 @@
+'use client'
+
 import {Modal, ModalContent, ModalHeader, ModalBody, Button, useDisclosure} from "@nextui-org/react";
 import Image from "next/image";
 import plusSvg from '../../../public/plus.svg'
 import {Select, SelectSection, SelectItem} from "@nextui-org/react";
-import { useRef } from 'react';
-import { useRouter } from "next/router";
+import { useRef, useState } from 'react';
+import { useRouter } from 'next/navigation'
 import { toast } from "sonner";
 import check from '@/public/check-circle.svg'
+import { uid } from "uid";
+
 
 export default function PageHeaderModal() {
+  const newFileName = uid();
+
+  const [file, setFile] = useState<File | undefined>();
+  const [fileNameModified, setFileNameModified] = useState<boolean>(false);
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      if (event.target.files && event.target.files[0]) {
+          const selectedFile = event.target.files[0] as File; 
+          setFile(selectedFile);
+          setFileNameModified(false); 
+      }
+  };
+
+  if (file && !fileNameModified) {
+      const modifiedFile = new File([file], newFileName, { type: file.type });
+      setFile(modifiedFile);
+      setFileNameModified(true); 
+  }
+
+      
 
   const router = useRouter()
   
@@ -19,25 +43,43 @@ export default function PageHeaderModal() {
   const phoneInputRef = useRef<HTMLInputElement>(null)
   const planInputRef = useRef<HTMLSelectElement>(null)
 
+
  async function submitHandler(e:any) {
     e.preventDefault()
 
+    const formData  = new FormData()
+    if(file) {
+      formData.append('file', file)
+    }
+
+    
     const memberData = {
       firstName: firstNameInputRef.current?.value,
       lastName: lastNameInputRef.current?.value,
       birthdate: birthInputRef.current?.value,
       email: emailInputRef.current?.value,
       phone: phoneInputRef.current?.value,
-      plan: planInputRef.current?.value
+      plan: planInputRef.current?.value,
+      imageKey: file?.name
     }
 
-    await fetch('/api/new-member', {
+    console.log(memberData)
+    console.log(formData)
+
+    await fetch('/api/s3-upload', {
+      method: 'POST',
+      body: formData,
+    })
+
+    // "http://localhost:3000/api/newMember"
+    await fetch("/api/newMember", {
       method: 'POST',
       body: JSON.stringify(memberData),
       headers: {
           'Content-Type': 'application/json'
       }
   })
+
 
   router.push('')
   toast(<div className="flex gap-1 justify-start">
@@ -97,6 +139,10 @@ export default function PageHeaderModal() {
                       <SelectItem key='premium' className="font-geo">Premium</SelectItem>
                       <SelectItem key='desk' className="font-geo">Desk</SelectItem>
                     </Select>
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor='file'>Profile picture</label>
+                    <input type="file" id="file" name="file" accept="images/*" onChange={handleFileChange} className="file:border file:border-solid file:rounded-lg file:px-3.5 file:py-2.5"/>
                   </div>
                   <div className="flex justify-end">
                     <button className="bg-indigo-500 rounded-xl text-white text-sm p-2" onClick={onClose}>Add Member</button>
