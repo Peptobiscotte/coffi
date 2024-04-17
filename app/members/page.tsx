@@ -3,7 +3,7 @@ import MembersMain from "@/components/members-components/members-section/Members
 import clientPromise from "@/lib/mongodb";
 
 async function getData() {
-  const res = await fetch('/api/getData')
+  const res = await fetch(process.env.URL + '/api/getData')
   return res.json()
 }
 
