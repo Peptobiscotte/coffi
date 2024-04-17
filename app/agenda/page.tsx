@@ -3,7 +3,7 @@ import Section from "@/components/agenda-components/agenda-section/section"
 import clientPromise from "@/lib/mongodb";
 
 async function getData() {
-    const res = await fetch(process.env.URL + '/api/getData')
+    const res = await fetch('/api/getData')
     return res.json()
   }
 

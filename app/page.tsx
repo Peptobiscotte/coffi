@@ -4,7 +4,7 @@ import HomeSection from "@/components/home-components/home-section/home-section"
 
 
 async function getData() {
-  const res = await fetch(process.env.URL + '/api/getData')
+  const res = await fetch('/api/getData')
   return res.json()
 }
 
