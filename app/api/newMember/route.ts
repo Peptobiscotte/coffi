@@ -20,7 +20,7 @@ export async function POST(req: any, res:any) {
        return Response.json({ 'message' : 'POST data' })
     } catch (error) {
         console.error(error)
-      return  { error } 
+      return  Response.json({ 'message' : 'error' }) 
     }
 }
 

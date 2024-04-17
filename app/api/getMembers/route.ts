@@ -11,6 +11,6 @@ export async function GET() {
       return Response.json({ members })
   } catch (e) {
       console.error(e)
-      return  { members : [] } 
+      return  Response.json({ members: [] })
     }
 }

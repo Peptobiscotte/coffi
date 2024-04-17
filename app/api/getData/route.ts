@@ -1,4 +1,5 @@
 import clientPromise from "@/lib/mongodb"
+import { error } from "console";
 
 export async function GET() {
     try {
@@ -14,6 +15,6 @@ export async function GET() {
       return Response.json({ members, events })
   } catch (e) {
       console.error(e)
-      return { props : { members : [] } }
+      return Response.json({ e })
     }
 }
