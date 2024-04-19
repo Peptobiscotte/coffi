@@ -9,8 +9,8 @@ export async function PATCH(req: any, res:any) {
         const data = await req.json()
         const objectId = new ObjectId(data._id)
 
-       const client = await MongoClient.connect(`mongodb+srv://${host}:${pass}@cluster0.bqzxlqw.mongodb.net/members?retryWrites=true&w=majority`)
-       const db = client.db()
+       const client = await MongoClient.connect(`mongodb+srv://${process.env.DB_HOST}:${process.env.DB_PASS}@cluster0.bqzxlqw.mongodb.net/?retryWrites=true&w=majority`)
+       const db = client.db('members')
 
        const meetupsCollection = db.collection('members')
 

@@ -14,8 +14,8 @@ export async function DELETE(req:NextRequest, res:any) {
         if(id !== null) {
             const objectId = new ObjectId(id)
 
-            const client = await MongoClient.connect(`mongodb+srv://${host}:${pass}@cluster0.bqzxlqw.mongodb.net/events?retryWrites=true&w=majority`)
-            const db = client.db()
+            const client = await MongoClient.connect(`mongodb+srv://${process.env.DB_HOST}:${process.env.DB_PASS}@cluster0.bqzxlqw.mongodb.net/?retryWrites=true&w=majority`)
+            const db = client.db('events')
         
             const meetupsCollection = db.collection('events')
         

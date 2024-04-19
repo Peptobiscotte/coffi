@@ -8,8 +8,8 @@ export async function POST(req: any, res:any) {
     try {
         const data = await req.json()
 
-       const client = await MongoClient.connect(`mongodb+srv://${host}:${pass}@cluster0.bqzxlqw.mongodb.net/members?retryWrites=true&w=majority`)
-       const db = client.db()
+       const client = await MongoClient.connect(`mongodb+srv://${process.env.DB_HOST}:${process.env.DB_PASS}@cluster0.bqzxlqw.mongodb.net/?retryWrites=true&w=majority`)
+       const db = client.db('members')
 
        const meetupsCollection = db.collection('members')
 

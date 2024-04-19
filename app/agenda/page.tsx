@@ -9,6 +9,7 @@ async function getData() {
 
 export default async function AgendaPage() {
     const { members, events } = await getData()
+    console.log(events)
     
     return (
         <div className="flex flex-col pt-10 px-8 gap-8">
