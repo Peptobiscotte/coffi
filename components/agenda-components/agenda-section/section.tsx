@@ -1,7 +1,8 @@
 import EventCard from "./event-card";
 
-export default function Section(props:any) {
+export default  function Section(props:any) {
     const { events, members } = props
+    
 
     function sortDate(a:any, b:any) {
         return new Date(a.date).getTime() - new Date(b.date).getTime();

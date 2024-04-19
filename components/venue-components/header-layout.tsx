@@ -8,6 +8,7 @@ import Link from "next/link"
 export default function HeaderLayout() {
     const router = useRouter()
     const pathName = usePathname()
+    
 
     return (
         <div className="flex flex-col px-8 pt-10 gap-8">
