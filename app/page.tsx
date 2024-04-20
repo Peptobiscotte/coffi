@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb"
 import HomeHeader from "@/components/home-components/home-header/home-header"
 import HomeSection from "@/components/home-components/home-section/home-section"
-
+import { revalidatePath } from 'next/cache'
 
 // async function getData() {
 //   const res = await fetch(`${process.env.URL}/api/getData`)
@@ -20,7 +20,9 @@ export default async function HomePage() {
 
       const members = JSON.parse(JSON.stringify(allMembers))
       const events = JSON.parse(JSON.stringify(allEvents))
-  
+
+      revalidatePath('/')
+      
   return (
     <div className="flex flex-col gap-8">
       <HomeHeader />

@@ -3,6 +3,7 @@ import MemberDetailSection from "@/components/members-components/members-details
 import clientPromise from "@/lib/mongodb";
 import { ObjectId } from 'mongodb';
 import { MongoClient } from "mongodb"
+import { revalidatePath } from 'next/cache'
 
 // async function getMemberDetail(slug:any) {
 //     const memberId = slug
