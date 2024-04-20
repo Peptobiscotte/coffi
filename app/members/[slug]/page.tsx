@@ -29,6 +29,7 @@ export default async function memberDetail({params}:any) {
   
         const memberData = JSON.parse(JSON.stringify(member))
 
+        revalidatePath('/members/[slug]')
     return(
         <div>
             <MemberDetailHeader member={memberData}/>

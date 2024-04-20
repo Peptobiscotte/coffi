@@ -2,6 +2,7 @@ import Header from "@/components/agenda-components/agenda-header/header"
 import Section from "@/components/agenda-components/agenda-section/section"
 import clientPromise from "@/lib/mongodb";
 import { MongoClient } from "mongodb"
+import { revalidatePath } from 'next/cache'
 
 // async function getData() {
 //     const res = await fetch(process.env.URL + '/api/getData')
@@ -19,7 +20,7 @@ export default async function AgendaPage() {
       const members = JSON.parse(JSON.stringify(allMembers))
       const events = JSON.parse(JSON.stringify(allEvents))
 
-    
+      revalidatePath('/agenda')
     return (
         <div className="flex flex-col pt-10 px-8 gap-8">
             <Header members={members}/>

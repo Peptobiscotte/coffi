@@ -2,6 +2,7 @@ import MembersHeader from "@/components/members-components/members-headers/heade
 import MembersMain from "@/components/members-components/members-section/MembersMain";
 import clientPromise from "@/lib/mongodb";
 import { MongoClient } from "mongodb"
+import { revalidatePath } from 'next/cache'
 
 // async function getData() {
 //   const res = await fetch(process.env.URL + '/api/getData')
@@ -20,6 +21,7 @@ export default async function MembersPage() {
       const members = JSON.parse(JSON.stringify(allMembers))
       const events = JSON.parse(JSON.stringify(allEvents))
 
+      revalidatePath('/members')
     return (
       <div>
         <MembersHeader allMembers={members}/>
