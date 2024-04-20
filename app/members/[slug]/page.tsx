@@ -2,31 +2,37 @@ import MemberDetailHeader from "@/components/members-components/members-details/
 import MemberDetailSection from "@/components/members-components/members-details/member-section";
 import clientPromise from "@/lib/mongodb";
 import { ObjectId } from 'mongodb';
+import { MongoClient } from "mongodb"
+
+// async function getMemberDetail(slug:any) {
+//     const memberId = slug
+//     try {
+//         const client = await MongoClient.connect(`mongodb+srv://${process.env.DB_HOST}:${process.env.DB_PASS}@cluster0.bqzxlqw.mongodb.net/?retryWrites=true&w=majority`)
+//         const db = client.db()
+//         const member = await db.collection("members").findOne({ _id: new ObjectId(memberId)});
+  
+//         const memberData = JSON.parse(JSON.stringify(member))
+        
+//         return memberData 
+//     } catch (e) {
+//         console.error(e)
+//         return  { member : {} } 
+//       }
+// }
 
 export default async function memberDetail({params}:any) {
     const slug = params.slug
-    const member = await getMemberDetail(slug)
+        const client = await MongoClient.connect(`mongodb+srv://${process.env.DB_HOST}:${process.env.DB_PASS}@cluster0.bqzxlqw.mongodb.net/?retryWrites=true&w=majority`)
+        const db = client.db('members')
+        const member = await db.collection("members").findOne({ _id: new ObjectId(slug)});
+  
+        const memberData = JSON.parse(JSON.stringify(member))
 
     return(
         <div>
-            <MemberDetailHeader member={member}/>
-            <MemberDetailSection member={member}/>
+            <MemberDetailHeader member={memberData}/>
+            <MemberDetailSection member={memberData}/>
         </div>
     )
 }
 
-async function getMemberDetail(slug:any) {
-    const memberId = slug
-    try {
-        const client = await clientPromise;
-        const db = client.db()
-        const member = await db.collection("members").findOne({ _id: new ObjectId(memberId)});
-  
-        const memberData = JSON.parse(JSON.stringify(member))
-        
-        return memberData 
-    } catch (e) {
-        console.error(e)
-        return  { member : {} } 
-      }
-}
