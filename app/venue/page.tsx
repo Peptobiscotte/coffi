@@ -6,7 +6,7 @@ export default function VenuePage() {
     return (
         <div className="flex flex-col gap-8">
             <HeaderLayout />
-            <div className="flex px-8 gap-8">
+            <div className="flex flex-col md:flex-row px-8 gap-8">
                 <div className="font-geo text-slate-400 basis-1/4">
                     <h1 className="text-black">Main informations</h1>
                     <h2>Update name, description and tags</h2>

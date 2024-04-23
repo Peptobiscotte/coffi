@@ -11,7 +11,7 @@ export default function PieContainer(props: any) {
     const { allMembers } = props
 
     return (
-        <div className="flex px-8 gap-6">
+        <div className="flex flex-col md:flex-row px-8 gap-6">
             <div className="flex gap-6 bg-white rounded-3xl border p-6 flex-1">
                 <div>
                     <Image src={pieChartOrange} alt="Occupancy chart"/>

@@ -15,7 +15,7 @@ export default function HomeTabs() {
     const active = 'text-white bg-indigo-500'
 
     return (
-        <div className="flex justify-between">
+        <div className="max-sm:hidden flex justify-between">
             <ButtonGroup className="font-geo">
                 <Button className={isPressed === 1 ? active : inactive} onClick={()=>pressHandler(1)}>12 months</Button>
                 <Button className={isPressed === 2 ? active : inactive} onClick={()=>pressHandler(2)}>30 days</Button>

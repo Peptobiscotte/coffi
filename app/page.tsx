@@ -24,7 +24,7 @@ export default async function HomePage() {
       revalidatePath('/')
       
   return (
-    <div className="flex flex-col gap-8">
+    <div className="overflow-x-scroll flex flex-col gap-8">
       <HomeHeader />
       <HomeSection allMembers={members} events={events}/>
     </div>

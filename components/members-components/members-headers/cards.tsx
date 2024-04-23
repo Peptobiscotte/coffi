@@ -14,7 +14,7 @@ export default function MemberCards(props: any) {
     const active = allMembers.length - freePlanArr.length
 
     return(
-        <div className="flex px-8 gap-6">
+        <div className="flex flex-col md:flex-row px-8 gap-6">
         <div className="flex gap-6 bg-white rounded-3xl border p-6 flex-1">
             <div className="flex flex-col gap-6 grow">
                 <div className="flex">

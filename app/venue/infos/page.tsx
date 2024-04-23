@@ -8,7 +8,7 @@ export default function VenuePage() {
     return (
         <div className="flex flex-col gap-8">
             <HeaderLayout />
-            <div className="flex px-8 gap-8">
+            <div className="flex flex-col md:flex-row px-8 gap-8">
                 <div className="font-geo text-slate-400 basis-1/4">
                     <h1 className="text-black">Practical informations</h1>
                     <h2>Update opening hours, services and guides</h2>
@@ -16,8 +16,8 @@ export default function VenuePage() {
                 <div className="basis-3/4">
                     <form spellCheck="false" className="flex flex-col gap-6 font-geo text-sm border bg-white rounded-xl p-6">
                         <h1>Opening Hours</h1>
-                        <div className="flex flex-col gap-1">
-                            <div className="flex gap-6 items-center">
+                        <div className="flex flex-col gap-4 md:gap-1">
+                            <div className="flex flex-col md:flex-row gap-2 md:gap-6 items-center">
                                 <h1 className="w-20">Monday</h1>
                                 <div className="flex gap-2">
                                     <input type="text" defaultValue='08 : 00' required className="border rounded-xl py-2.5 px-3.5 w-24"/>
@@ -25,7 +25,7 @@ export default function VenuePage() {
                                 </div>
                                 <Checkbox>Closed</Checkbox>
                             </div>
-                            <div className="flex gap-6 items-center">
+                            <div className="flex flex-col md:flex-row gap-6 items-center">
                                 <h1 className="w-20">Tuesday</h1>
                                 <div className="flex gap-2">
                                     <input type="text" defaultValue='08 : 00' required className="border rounded-xl py-2.5 px-3.5 w-24"/>
@@ -33,7 +33,7 @@ export default function VenuePage() {
                                 </div>
                                 <Checkbox>Closed</Checkbox>
                             </div>
-                            <div className="flex gap-6 items-center">
+                            <div className="flex flex-col md:flex-row gap-6 items-center">
                                 <h1 className="w-20">Wednesday</h1>
                                 <div className="flex gap-2">
                                     <input type="text" defaultValue='08 : 00' required className="border rounded-xl py-2.5 px-3.5 w-24"/>
@@ -41,7 +41,7 @@ export default function VenuePage() {
                                 </div>
                                 <Checkbox>Closed</Checkbox>
                             </div>
-                            <div className="flex gap-6 items-center">
+                            <div className="flex flex-col md:flex-row gap-6 items-center">
                                 <h1 className="w-20">Thursday</h1>
                                 <div className="flex gap-2">
                                     <input type="text" defaultValue='08 : 00' required className="border rounded-xl py-2.5 px-3.5 w-24"/>
@@ -49,7 +49,7 @@ export default function VenuePage() {
                                 </div>
                                 <Checkbox>Closed</Checkbox>
                             </div>
-                            <div className="flex gap-6 items-center">
+                            <div className="flex flex-col md:flex-row gap-6 items-center">
                                 <h1 className="w-20">Friday</h1>
                                 <div className="flex gap-2">
                                     <input type="text" defaultValue='08 : 00' required className="border rounded-xl py-2.5 px-3.5 w-24"/>
@@ -57,7 +57,7 @@ export default function VenuePage() {
                                 </div>
                                 <Checkbox>Closed</Checkbox>
                             </div>
-                            <div className="flex gap-6 items-center">
+                            <div className="flex flex-col md:flex-row gap-6 items-center">
                                 <h1 className="w-20">Saturday</h1>
                                 <div className="flex gap-2">
                                     <input type="text" defaultValue='08 : 00' required className="border rounded-xl py-2.5 px-3.5 w-24"/>
@@ -65,7 +65,7 @@ export default function VenuePage() {
                                 </div>
                                 <Checkbox defaultSelected>Closed</Checkbox>
                             </div>
-                            <div className="flex gap-6 items-center">
+                            <div className="flex flex-col md:flex-row gap-6 items-center">
                                 <h1 className="w-20">Sunday</h1>
                                 <div className="flex gap-2">
                                     <input type="text" defaultValue='08 : 00' required className="border rounded-xl py-2.5 px-3.5 w-24"/>

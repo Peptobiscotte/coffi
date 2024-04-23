@@ -9,7 +9,7 @@ export default function HomeSection(props: any) {
     return (
         <div className="flex flex-col gap-6">
             <PieContainer allMembers={allMembers}/>
-            <div className="flex px-8 gap-6">
+            <div className="flex flex-col md:flex-row px-8 gap-6">
                 <div className="flex flex-col gap-6">
                     <Turnover />
                     <UpcomingEvents events={events} members={allMembers}/>

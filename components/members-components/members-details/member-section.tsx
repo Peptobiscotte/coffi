@@ -59,14 +59,14 @@ export default function MemberDetailSection({member}: any) {
   
 
     return (
-        <div className="flex p-8 gap-8">
+        <div className="flex flex-col md:flex-row p-8 gap-8">
             <div className="font-geo text-sm">
                 <h1>Personal info</h1>
                 <h2 className="text-slate-400">Update member photo and personal details.</h2>
             </div>
-            <div className="flex-1">
+            <div className="flex-1 md:flex-row flex-col">
             <form onSubmit={submitHandler} className="flex flex-col gap-6 font-geo p-6 rounded-2xl bg-white border">
-                  <div className="flex gap-6">
+                  <div className="flex flex-col md:flex-row gap-6">
                     <div className="flex flex-col gap-1.5 flex-1">
                       <label htmlFor='fname'>First name</label>
                       <input type='text' defaultValue={member.firstName} required id='fname' ref={firstNameInputRef} className="border rounded-2xl px-3.5 py-2.5 font-light"/>
@@ -80,7 +80,7 @@ export default function MemberDetailSection({member}: any) {
                     <label htmlFor='birth'>Birthdate</label>
                     <input type='text' defaultValue={member.birthdate} required id='birth'  ref={birthInputRef} className="border rounded-2xl px-3.5 py-2.5"/>
                   </div>
-                  <div className="flex gap-6">
+                  <div className="flex flex-col md:flex-row gap-6">
                     <div className="flex flex-col gap-1.5 flex-1">
                       <label htmlFor='email'>Email address</label>
                       <input type='email' defaultValue={member.email} required id='email' ref={emailInputRef} className="border rounded-2xl px-3.5 py-2.5 font-light"/>

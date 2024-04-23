@@ -11,7 +11,7 @@ export default function TableMember(props: any) {
 
     return(
         <tr className="border-b">
-            <td className="text-sm text-black flex items-center gap-2 py-4">
+            <td className="text-sm text-black flex items-center gap-10 md:gap-2 py-4">
                 <Link href={`/members/${member._id}`}>
                     <Avatar showFallback name={member.firstName} src={imgURL} />
                 </Link>
@@ -19,10 +19,10 @@ export default function TableMember(props: any) {
                 {member.firstName} {member.lastName}
                 </Link>
             </td>
-            <td>{member.email}</td>
-            <td>{member.plan}</td>
-            <td>November 16, 2023</td>
-            <td>
+            <td className="max-sm:hidden">{member.email}</td>
+            <td className="max-sm:hidden">{member.plan}</td>
+            <td className="max-sm:hidden">November 16, 2023</td>
+            <td className="max-sm:hidden">
                 <div className="flex justify-around">
                     <button><Link href={`/members/${member._id}`}><Image src={editSvg} alt="edit"/></Link></button>
                     <button><Image src={bubbleSvg} alt="comment"/></button>

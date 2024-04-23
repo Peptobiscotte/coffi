@@ -35,14 +35,14 @@ export default function Header(props:any) {
             </div>
             <div className="flex justify-between">
                 <div>
-                    <ButtonGroup className="font-geo">
+                    <ButtonGroup className="font-geo max-sm:hidden">
                         <Button className={isPressed === 1 ? active : inactive} onClick={()=>pressHandler(1)}>Today</Button>
                         <Button className={isPressed === 2 ? active : inactive} onClick={()=>pressHandler(2)}>7 next days</Button>
                         <Button className={isPressed === 3 ? active : inactive} onClick={()=>pressHandler(3)}>30 next days</Button>
                     </ButtonGroup>
                 </div>
                 <div>
-                    <ButtonGroup>
+                    <ButtonGroup className="max-sm:hidden">
                         <Button className={isPressed1 === 4 ? active : inactive} onClick={()=>pressHandler1(4)}><Image src={rowSvg} alt="row"/></Button>
                         <Button className={isPressed1 === 5 ? active : inactive} onClick={()=>pressHandler1(5)}><Image src={columnSvg} alt="column" /></Button>
                     </ButtonGroup>

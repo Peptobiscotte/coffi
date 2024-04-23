@@ -43,7 +43,7 @@ export default function VenuePromo() {
     return(
         <div className="flex flex-col gap-8">
             <HeaderLayout />
-            <div className="flex px-8 gap-8">
+            <div className="flex flex-col md:flex-row px-8 gap-8">
                 <div className="font-geo text-slate-400 basis-1/4">
                     <h1 className="text-black">Promotion</h1>
                     <h2>Choose on which platform you want to appear</h2>
@@ -51,7 +51,7 @@ export default function VenuePromo() {
                 <div className="flex flex-col border rounded-2xl basis-3/4 bg-white px-6 py-2">
                     <div className="flex justify-between py-6 border-b">
                         <div className="flex gap-3">
-                            <Image src={iconwrap} alt="icon wrap"/>
+                            <Image src={iconwrap} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
                                 <h1>Coworker</h1>
                                 <h2 className="text-sm text-slate-500">Office space, flexible memberships & meeting rooms</h2>
@@ -70,7 +70,7 @@ export default function VenuePromo() {
                     </div>
                     <div className="flex justify-between py-6 border-b">
                         <div className="flex gap-3">
-                            <Image src={iconwrap1} alt="icon wrap"/>
+                            <Image src={iconwrap1} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
                                 <h1>Spaces</h1>
                                 <h2 className="text-sm text-slate-500">Office space, flexible memberships & meeting rooms</h2>
@@ -89,7 +89,7 @@ export default function VenuePromo() {
                     </div>
                     <div className="flex justify-between py-6 border-b">
                         <div className="flex gap-3">
-                            <Image src={iconwrap2} alt="icon wrap"/>
+                            <Image src={iconwrap2} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
                                 <h1>Regus</h1>
                                 <h2 className="text-sm text-slate-500">Offices, Coworking and meeting rooms</h2>
@@ -108,7 +108,7 @@ export default function VenuePromo() {
                     </div>
                     <div className="flex justify-between py-6 border-b">
                         <div className="flex gap-3">
-                            <Image src={iconwrap3} alt="icon wrap"/>
+                            <Image src={iconwrap3} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
                                 <h1>Croissant</h1>
                                 <h2 className="text-sm text-slate-500">Unlock the best coworking spaces daily with one membership</h2>
@@ -127,7 +127,7 @@ export default function VenuePromo() {
                     </div>
                     <div className="flex justify-between py-6 border-b">
                         <div className="flex gap-3">
-                            <Image src={iconwrap4} alt="icon wrap"/>
+                            <Image src={iconwrap4} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
                                 <h1>Coworkmo</h1>
                                 <h2 className="text-sm text-slate-500">Occasional and affordable coworking spaces</h2>
@@ -146,7 +146,7 @@ export default function VenuePromo() {
                     </div>
                     <div className="flex justify-between py-6 border-b">
                         <div className="flex gap-3">
-                            <Image src={iconwrap5} alt="icon wrap"/>
+                            <Image src={iconwrap5} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
                                 <h1>Ubiq</h1>
                                 <h2 className="text-sm text-slate-500">Find the perfect coworking space</h2>

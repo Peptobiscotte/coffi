@@ -63,13 +63,13 @@ export default function EventCard(props:any) {
                    ))}
                 </AvatarGroup>
                 </div>
-                <div className="flex gap-1 items-center">
+                <div className="flex gap-1 items-center max-sm:hidden">
                     <Image src={pinSvg} alt="pin"/>
-                    <p className="text-slate-500">{data.location}</p>
+                    <p className="text-slate-500 ">{data.location}</p>
                 </div>
             </div>
             <div className="flex">
-            <Button onPress={onOpen} variant="bordered" className="border-none"><Image src={trashSvg} alt="trash"/></Button>
+            <Button onPress={onOpen} variant="bordered" className="border-none max-sm:hidden"><Image src={trashSvg} alt="trash"/></Button>
                     <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
                         <ModalContent>
                             {(onClose) => (
@@ -92,7 +92,7 @@ export default function EventCard(props:any) {
                             )}
                             </ModalContent>
                         </Modal>
-                <button className="flex gap-2 border rounded-3xl py-2 px-3.5">
+                <button className="flex gap-2 border rounded-3xl py-2 px-3.5 max-sm:hidden">
                     <Image src={editSvg} alt="edit"/>
                     <p className="text-slate-500">Edit</p>
                 </button>

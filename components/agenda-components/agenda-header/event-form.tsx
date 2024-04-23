@@ -67,7 +67,7 @@ export default function EventModal(props:any) {
 
   return (
     <>
-      <Button onPress={onOpen} className="flex bg-indigo-500 py-6 px-4 rounded-2xl">
+      <Button onPress={onOpen} className="flex bg-indigo-500 py-6 px-4 rounded-2xl max-sm:hidden">
         <Image src={plusSvg} alt="plus"/>
         <p className="font-geo text-white">New event</p>
       </Button>

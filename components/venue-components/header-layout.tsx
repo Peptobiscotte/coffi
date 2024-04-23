@@ -18,7 +18,7 @@ export default function HeaderLayout() {
                     <h2 className="font-geo text-slate-400">Manage your cowork informations, photos & promotional chans</h2>
                 </div>
                 <div>
-                    <button className="flex font-geo text-slate-500 gap-1 border rounded-xl py-3 px-4">
+                    <button className="flex font-geo text-slate-500 gap-1 border rounded-xl py-3 px-4 max-sm:hidden">
                         <Image src={trashSvg} alt="trash svg"/>
                         <p>Delete venue</p>
                     </button>

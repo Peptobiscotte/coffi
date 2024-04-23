@@ -97,7 +97,7 @@ export default function PageHeaderModal() {
 
   return (
     <>
-      <Button onPress={onOpen} className="bg-indigo-500 py-6 px-4 rounded-2xl">
+      <Button onPress={onOpen} className="max-sm:hidden bg-indigo-500 py-6 px-4 rounded-2xl">
         <Image src={plusSvg} alt="plus svg"/>
         <p className="font-geo text-white">New Member</p>
       </Button>

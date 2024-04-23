@@ -28,9 +28,9 @@ export default function MemberDetailHeader({member}: any) {
     return (
         <div>
             <div className="h-40 bg-gradient-to-r from-amber-500/20 to-indigo-500/20"></div>
-            <div className="flex justify-between p-8 -mt-16">
+            <div className="flex flex-col md:flex-row justify-between p-8 -mt-16 max-sm:gap-4">
                 <div className="flex gap-6">
-                    <Avatar showFallback className="w-40 h-40" src={imageURL}/>
+                    <Avatar showFallback className="w-20 h-20 md:w-40 md:h-40" src={imageURL}/>
                     <div className="flex flex-col justify-center">
                         <h1 className="text-3xl font-brico">{member.firstName} {member.lastName}</h1>
                         <h2 className="text-base font-geo text-slate-400">{member.email}</h2>

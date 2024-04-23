@@ -18,7 +18,7 @@ export default function CardHeader(props: any) {
                     <p className='font-geo text-sm text-slate-500'>Download all</p>
                 </button>
             </div>
-            <div className='py-3 flex justify-between'>
+            <div className='max-sm:hidden py-3 flex justify-between'>
                  <button className='flex gap-1 items-center border rounded-3xl py-2.5 px-3.5'>
                     <Image src={filterSvg} alt='filter Button'/>
                     <p className='font-geo text-sm text-slate-500'>Filters</p>
