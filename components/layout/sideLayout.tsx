@@ -3,9 +3,11 @@ import LayoutFooter from "./footer";
 
 export default function SideLayout() {
     return (
-        <div className="basis-1/5 bg-white border-r border-stone-200 flex flex-col justify-between h-screen md:sticky md:top-0">
+        <div className="basis-1/5 bg-white border-r border-stone-200 flex flex-col justify-between h-screen md:sticky md:top-0 max-sm:mb-4">
             <LayoutHeader />
-            <LayoutFooter />
+            <span className="max-sm:hidden">
+                <LayoutFooter />
+            </span>
         </div>
     )
 }
