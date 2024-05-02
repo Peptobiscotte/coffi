@@ -9,11 +9,14 @@ import { useRouter } from 'next/navigation'
 import { toast } from "sonner";
 import check from '@/public/check-circle.svg'
 import { uid } from "uid";
+import {DateInput} from "@nextui-org/react";
+import {parseDate, getLocalTimeZone} from "@internationalized/date";
 
 
 export default function PageHeaderModal() {
   const newFileName = uid();
 
+  const [dateValue, setDateValue] = useState(parseDate("2024-06-30"))
   const [file, setFile] = useState<File | undefined>();
   const [fileNameModified, setFileNameModified] = useState<boolean>(false);
 
@@ -42,7 +45,9 @@ export default function PageHeaderModal() {
   const emailInputRef = useRef<HTMLInputElement>(null)
   const phoneInputRef = useRef<HTMLInputElement>(null)
   const planInputRef = useRef<HTMLSelectElement>(null)
-
+  
+  console.log(dateValue.toString())
+  
 
  async function submitHandler(e:any) {
     e.preventDefault()
@@ -56,7 +61,7 @@ export default function PageHeaderModal() {
     const memberData = {
       firstName: firstNameInputRef.current?.value,
       lastName: lastNameInputRef.current?.value,
-      birthdate: birthInputRef.current?.value,
+      birthdate: dateValue.toString(),
       email: emailInputRef.current?.value,
       phone: phoneInputRef.current?.value,
       plan: planInputRef.current?.value,
@@ -119,8 +124,8 @@ export default function PageHeaderModal() {
                     </div>
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor='birth'>Birthdate</label>
-                    <input type='text' required id='birth' placeholder='DD/MM/YYYY' ref={birthInputRef} className="border rounded-lg px-3.5 py-2.5"/>
+                    <label htmlFor='birthdate'>Birthdate</label>
+                    <DateInput variant="bordered" className="max-w-sm" size='lg' value={dateValue} onChange={setDateValue}/>
                   </div>
                   <div className="flex gap-6">
                     <div className="flex flex-col gap-1.5">
@@ -134,7 +139,7 @@ export default function PageHeaderModal() {
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <h1>Plan</h1>
-                    <Select variant="bordered" ref={planInputRef} className="font-geo">
+                    <Select variant="bordered" ref={planInputRef} size='lg' className="font-geo">
                       <SelectItem key='free' className="font-geo">Free</SelectItem>
                       <SelectItem key='premium' className="font-geo">Premium</SelectItem>
                       <SelectItem key='desk' className="font-geo">Desk</SelectItem>
