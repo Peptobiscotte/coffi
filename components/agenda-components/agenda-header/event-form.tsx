@@ -71,7 +71,7 @@ export default function EventModal(props:any) {
         <Image src={plusSvg} alt="plus"/>
         <p className="font-geo text-white">New event</p>
       </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="h-3/5" size="2xl">
+      <Modal placement="center" isOpen={isOpen} onOpenChange={onOpenChange} size="2xl">
         <ModalContent>
           {(onClose) => (
             <>
