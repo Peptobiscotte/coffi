@@ -46,7 +46,6 @@ export default function PageHeaderModal() {
   const phoneInputRef = useRef<HTMLInputElement>(null)
   const planInputRef = useRef<HTMLSelectElement>(null)
   
-  console.log(dateValue.toString())
   
 
  async function submitHandler(e:any) {

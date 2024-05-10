@@ -5,9 +5,12 @@ import dotsSvg from '../../../public/dots-vertical.svg'
 import arrowUpSvg from '../../../public/arrow-up.svg'
 import layerSvg from '@/public/layers-two-01.svg'
 import pieChartImg from '@/public/images/pieChart.png'
+import dynamic from "next/dynamic"
 
 export default function MemberCards(props: any) {
     const { allMembers } = props
+    const plan = allMembers.map((member:any) => member.plan)
+    const BarChartWithoutSSR = dynamic(() => import('@/components/charts/barChartActive'), {ssr: false})
     let freePlanArr = []
     
     allMembers.map((member: any) => member.plan === 'free' ? freePlanArr.push(member) : '')
@@ -71,7 +74,8 @@ export default function MemberCards(props: any) {
                     
                     </div>
                     <div>
-                        <Image src={pieChartImg} alt="chart"/>
+                        {/* <Image src={pieChartImg} alt="chart"/> */}
+                        <BarChartWithoutSSR data={plan}/>
                     </div>
                 </div>
                 

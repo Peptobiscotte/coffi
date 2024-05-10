@@ -11,6 +11,8 @@ import {parseDate} from '@internationalized/date';
 import {I18nProvider} from 'react-aria';
 import { toast } from "sonner";
 import check from '@/public/check-circle.svg'
+import {TimeInput} from "@nextui-org/react";
+import {Time} from "@internationalized/date";
 
 export default function EventModal(props:any) {
   const router = useRouter()
@@ -25,6 +27,10 @@ export default function EventModal(props:any) {
   const whereInputRef = useRef<HTMLSelectElement>(null)
 
   let [dateValue, setValue] = useState(parseDate('2024-04-28'));
+  const [fromValue, setFromValue] = useState(new Time(9))
+  const [toValue, setToValue] = useState(new Time(9))
+  console.log(fromValue.toString().slice(0,5))
+  console.log(toValue.toString().slice(0,5))
 
   const [memberValues, setValues] = useState(new Array());
 
@@ -38,8 +44,8 @@ export default function EventModal(props:any) {
 
     const eventData = {
       title: titleInputRef.current?.value,
-      from: fromInputRef.current?.value,
-      to: toInputRef.current?.value,
+      from: fromValue.toString().slice(0,5),
+      to: toValue.toString().slice(0,5),
       location: whereInputRef.current?.value,
       members: memberValues,
       date: dateValue?.toString()
@@ -84,14 +90,14 @@ export default function EventModal(props:any) {
                   </div>
                   <div className="flex gap-2">
                     <div className="flex flex-col gap-1.5 grow">
-                      <label htmlFor='title'>From :</label>
-                      <input ref={fromInputRef} type='text' required id='title' className="border-2 rounded-lg px-3.5 py-2.5 font-light" placeholder="09:00"/>
+                      <label htmlFor='from'>From :</label>
+                      <TimeInput variant='bordered' size='lg' label={null} defaultValue={new Time(9, )} minValue={new Time(9)} onChange={setFromValue}/>
                     </div>
                     <div className="flex flex-col gap-1.5 grow">
-                      <label htmlFor='title'>To :</label>
-                      <input ref={toInputRef} type='text' required id='title' className="border-2 rounded-lg px-3.5 py-2.5 font-light" placeholder="09:00"/>
+                      <label htmlFor='to'>To :</label>
+                      <TimeInput variant='bordered' size='lg' label={null} defaultValue={new Time(9, )} onChange={setToValue}/>
                     </div>
-                  </div>
+                  </div> 
                   <div className="flex flex-col gap-1.5">
                     <h1>Where</h1>
                     <Select ref={whereInputRef} variant="bordered" className="font-geo">
@@ -117,6 +123,7 @@ export default function EventModal(props:any) {
                     </DateInput>
                   </DateField>
                     </I18nProvider>
+                    
                   <div className="flex justify-end mt-10">
                     <button className="bg-indigo-500 rounded-xl text-white text-sm p-2" onClick={onClose}>Add Event</button>
                   </div>

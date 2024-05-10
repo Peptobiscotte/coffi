@@ -1,7 +1,9 @@
+import BarChart from "@/components/charts/barChartPlan";
 import BestMembers from "./best-members";
 import PieContainer from "./pie-container";
 import Turnover from "./turnover";
 import UpcomingEvents from "./upcoming-events";
+import dynamic from "next/dynamic";
 
 export default function HomeSection(props: any) {
     const { allMembers, events } = props
