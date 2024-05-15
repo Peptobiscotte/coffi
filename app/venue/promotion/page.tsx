@@ -45,15 +45,15 @@ export default function VenuePromo() {
             <HeaderLayout />
             <div className="flex flex-col md:flex-row px-8 gap-8">
                 <div className="font-geo text-slate-400 basis-1/4">
-                    <h1 className="text-black">Promotion</h1>
+                    <h1 className="text-black dark:text-slate-200">Promotion</h1>
                     <h2>Choose on which platform you want to appear</h2>
                 </div>
-                <div className="flex flex-col border rounded-2xl basis-3/4 bg-white px-6 py-2">
-                    <div className="flex justify-between py-6 border-b">
+                <div className="flex flex-col border rounded-2xl basis-3/4 bg-white px-6 py-2 dark:bg-slate-900 dark:border-slate-900">
+                    <div className="flex justify-between py-6 border-b dark:border-slate-800">
                         <div className="flex gap-3">
                             <Image src={iconwrap} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
-                                <h1>Coworker</h1>
+                                <h1 className='dark:text-slate-200'>Coworker</h1>
                                 <h2 className="text-sm text-slate-500">Office space, flexible memberships & meeting rooms</h2>
                             </div>
                         </div>
@@ -68,11 +68,11 @@ export default function VenuePromo() {
                             </div>
                         }                       
                     </div>
-                    <div className="flex justify-between py-6 border-b">
+                    <div className="flex justify-between py-6 border-b dark:border-slate-800">
                         <div className="flex gap-3">
                             <Image src={iconwrap1} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
-                                <h1>Spaces</h1>
+                                <h1 className='dark:text-slate-200'>Spaces</h1>
                                 <h2 className="text-sm text-slate-500">Office space, flexible memberships & meeting rooms</h2>
                             </div>
                         </div>
@@ -87,11 +87,11 @@ export default function VenuePromo() {
                             </div>
                         } 
                     </div>
-                    <div className="flex justify-between py-6 border-b">
+                    <div className="flex justify-between py-6 border-b dark:border-slate-800">
                         <div className="flex gap-3">
                             <Image src={iconwrap2} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
-                                <h1>Regus</h1>
+                                <h1 className='dark:text-slate-200'>Regus</h1>
                                 <h2 className="text-sm text-slate-500">Offices, Coworking and meeting rooms</h2>
                             </div>
                         </div>
@@ -106,11 +106,11 @@ export default function VenuePromo() {
                             </div>
                         } 
                     </div>
-                    <div className="flex justify-between py-6 border-b">
+                    <div className="flex justify-between py-6 border-b dark:border-slate-800">
                         <div className="flex gap-3">
                             <Image src={iconwrap3} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
-                                <h1>Croissant</h1>
+                                <h1 className='dark:text-slate-200'>Croissant</h1>
                                 <h2 className="text-sm text-slate-500">Unlock the best coworking spaces daily with one membership</h2>
                             </div>
                         </div>
@@ -125,11 +125,11 @@ export default function VenuePromo() {
                             </div>
                         } 
                     </div>
-                    <div className="flex justify-between py-6 border-b">
+                    <div className="flex justify-between py-6 border-b dark:border-slate-800">
                         <div className="flex gap-3">
                             <Image src={iconwrap4} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
-                                <h1>Coworkmo</h1>
+                                <h1 className='dark:text-slate-200'>Coworkmo</h1>
                                 <h2 className="text-sm text-slate-500">Occasional and affordable coworking spaces</h2>
                             </div>
                         </div>
@@ -144,11 +144,11 @@ export default function VenuePromo() {
                             </div>
                         } 
                     </div>
-                    <div className="flex justify-between py-6 border-b">
+                    <div className="flex justify-between py-6 border-b dark:border-slate-800">
                         <div className="flex gap-3">
                             <Image src={iconwrap5} alt="icon wrap" className="h-12 w-12"/>
                             <div className="font-geo">
-                                <h1>Ubiq</h1>
+                                <h1 className='dark:text-slate-200'>Ubiq</h1>
                                 <h2 className="text-sm text-slate-500">Find the perfect coworking space</h2>
                             </div>
                         </div>

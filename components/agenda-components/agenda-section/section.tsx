@@ -25,13 +25,13 @@ export default  function Section(props:any) {
     return (
         <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
-                <h1 className="font-geo">Next events</h1>
+                <h1 className="font-geo dark:text-slate-200">Next events</h1>
                 {todaysEvents.map((event:any) => 
                 <EventCard key={event._id} data={event} members={members}/>
                 )}
             </div>
             <div className="flex flex-col gap-2">
-                <h1 className="font-geo">Nexter events</h1>
+                <h1 className="font-geo dark:text-slate-200">Nexter events</h1>
                 {nextEvents.map((event:any) => 
                 <EventCard key={event._id} data={event} members={members}/>
                 )}

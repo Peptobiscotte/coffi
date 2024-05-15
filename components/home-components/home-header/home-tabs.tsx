@@ -11,8 +11,8 @@ export default function HomeTabs() {
         setIsPressed(id)
     }
 
-    const inactive = 'text-slate-500 bg-white'
-    const active = 'text-white bg-indigo-500'
+    const inactive = 'text-slate-500 bg-white dark:bg-slate-900'
+    const active = 'text-white bg-indigo-500 dark:bg-slate-200 dark:text-slate-800'
 
     return (
         <div className="max-sm:hidden flex justify-between">

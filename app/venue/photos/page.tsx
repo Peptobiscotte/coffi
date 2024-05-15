@@ -14,12 +14,12 @@ export default function VenuePhoto() {
             <HeaderLayout />
             <div className="flex flex-col md:flex-row px-8 gap-8">
                 <div className="font-geo text-slate-400 basis-1/4">
-                    <h1 className="text-black">Photos</h1>
+                    <h1 className="text-black dark:text-slate-200">Photos</h1>
                     <h2>Update your cowork photos</h2>
                 </div>
-                <div className="border bg-white rounded-xl p-6 flex flex-col gap-5">
+                <div className="border bg-white rounded-xl p-6 flex flex-col gap-5 dark:bg-slate-900 dark:border-slate-900">
                     <div className="flex flex-col md:flex-row gap-5">
-                        <Image src={coworkImage1} alt="cowork image"/>
+                        <Image src={coworkImage1} alt="cowork image" className="rounded-xl"/>
                         <Image src={coworkImage2} alt="cowork image 2"/>
                     </div>
                     <div className="flex flex-col md:flex-row gap-5">

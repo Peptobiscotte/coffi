@@ -45,14 +45,14 @@ export default function EventCard(props:any) {
     
 
     return (
-        <div className="flex justify-between border rounded-3xl bg-white font-geo pl-7 pr-5 py-4 items-center">
+        <div className="flex justify-between border rounded-3xl bg-white font-geo pl-7 pr-5 py-4 items-center dark:bg-slate-900 dark:border-slate-900">
             <div className="flex gap-6">
-                <div className="flex flex-col border-r justify-center">
-                    <p className="mr-6">{justDay}</p>
-                    <p className="font-brico text-3xl">{dayWeekNumber}</p>
+                <div className="flex flex-col border-r justify-center dark:border-slate-800">
+                    <p className="mr-6 dark:text-slate-200">{justDay}</p>
+                    <p className="font-brico text-3xl dark:text-slate-200">{dayWeekNumber}</p>
                 </div>
                 <div className="flex flex-col gap-3">
-                    <h1 className="text-lg">{data.title}</h1>
+                    <h1 className="text-lg dark:text-slate-200">{data.title}</h1>
                     <p className="flex gap-1 text-slate-500">
                         <Image src={clockSvg} alt="clock"/>
                         {data.from} - {data.to}
@@ -92,7 +92,7 @@ export default function EventCard(props:any) {
                             )}
                             </ModalContent>
                         </Modal>
-                <button className="flex gap-2 border rounded-3xl py-2 px-3.5 max-sm:hidden">
+                <button className="flex gap-2 border rounded-3xl py-2 px-3.5 max-sm:hidden dark:border-slate-800">
                     <Image src={editSvg} alt="edit"/>
                     <p className="text-slate-500">Edit</p>
                 </button>

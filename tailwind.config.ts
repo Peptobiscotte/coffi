@@ -22,7 +22,7 @@ const config: Config = {
       },
     },
   },
-  darkMode: "class",
+  
   plugins: [nextui({
     addCommonColors: true,
     colors: {

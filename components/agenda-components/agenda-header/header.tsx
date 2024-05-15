@@ -19,14 +19,14 @@ export default function Header(props:any) {
         setIsPressed1(id)
     }
 
-    const inactive = 'text-slate-500 bg-white border-1'
-    const active = 'text-white bg-indigo-500 border-1'
+    const inactive = 'text-slate-500 bg-white border-1 dark:bg-slate-900 dark:border-slate-900'
+    const active = 'text-white bg-indigo-500 border-1 dark:bg-slate-200 dark:text-slate-800'
 
     return (
         <div className="flex flex-col gap-6">
             <div className="flex justify-between">
                 <div className="flex flex-col gap-1">
-                    <h1 className="font-brico text-3xl">Agenda</h1>
+                    <h1 className="font-brico text-3xl dark:text-slate-200">Agenda</h1>
                     <h2 className="font-geo text-slate-400">Create & organize your cowork events</h2>
                 </div>
                 <div>
@@ -43,7 +43,7 @@ export default function Header(props:any) {
                 </div>
                 <div>
                     <ButtonGroup className="max-sm:hidden">
-                        <Button className={isPressed1 === 4 ? active : inactive} onClick={()=>pressHandler1(4)}><Image src={rowSvg} alt="row"/></Button>
+                        <Button className={isPressed1 === 4 ? active : inactive} onClick={()=>pressHandler1(4)}><Image src={rowSvg} alt="row" className="dark:stroke-slate-800"/></Button>
                         <Button className={isPressed1 === 5 ? active : inactive} onClick={()=>pressHandler1(5)}><Image src={columnSvg} alt="column" /></Button>
                     </ButtonGroup>
                 </div>

@@ -10,12 +10,12 @@ export default function TableMember(props: any) {
     const imgURL = `https://mycoffibucket.s3.eu-west-3.amazonaws.com/userImg/${member.imageKey}`
 
     return(
-        <tr className="border-b">
+        <tr className="border-b dark:border-slate-800">
             <td className="text-sm text-black flex items-center gap-10 md:gap-2 py-4">
                 <Link href={`/members/${member._id}`}>
                     <Avatar showFallback name={member.firstName} src={imgURL} />
                 </Link>
-                <Link href={`/members/${member._id}`}>
+                <Link href={`/members/${member._id}`} className="dark:text-slate-200">
                 {member.firstName} {member.lastName}
                 </Link>
             </td>
