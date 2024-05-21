@@ -1,6 +1,9 @@
+'use client'
+
 import settingsSvg from '../../public/settings-01.svg'
 import supportSvg from '../../public/life-buoy-01.svg'
 import Image from 'next/image'
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 
 export default function NavLinkFooter() {
     return (
