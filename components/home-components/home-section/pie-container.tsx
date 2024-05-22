@@ -13,7 +13,6 @@ export default function PieContainer(props: any) {
     const plan = allMembers.map((member:any) => member.plan)
     const divider = (15 - plan.length)
     const percentageOccupied = Math.floor((1 - divider/15) * 100)
-    console.log(percentageOccupied)
 
     const BarChartWithoutSSR = dynamic(() => import('@/components/charts/barChartPlan'), {ssr: false})
     const BarChartOccupancyWithoutSSR = dynamic(() => import('@/components/charts/barChartOccupancy'), {ssr: false})
