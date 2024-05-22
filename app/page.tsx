@@ -14,6 +14,7 @@ import { getServerSession } from "next-auth/next"
 export default async function HomePage() {
   // const { members, events } = await getData()
   const session = await getServerSession(options)
+  
 
       const client = await MongoClient.connect(`mongodb+srv://${process.env.DB_HOST}:${process.env.DB_PASS}@cluster0.bqzxlqw.mongodb.net/?retryWrites=true&w=majority`)
       const db1 = client.db('members')

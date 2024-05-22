@@ -27,8 +27,8 @@ export default function VenuePhoto() {
                         <Image src={coworkImage4} alt="cowork image 2"/>
                     </div>
                     <div className="flex flex-col md:flex-row gap-5">
-                        <Image src={coworkImage5} alt="cowork image"/>
-                        <div className="border-dashed border-2 grow rounded-2xl flex justify-center items-center">
+                        <Image src={coworkImage5} alt="cowork image" className="basis-1/2"/>
+                        <div className="border-dashed border-2 grow rounded-2xl flex justify-center items-center basis-1/2">
                             <button className="flex gap-1 border rounded-2xl px-4 py-2.5">
                                 <Image src={plusSvg} alt="plus"/>
                                 <p className="max-sm:border-none font-geo text-slate-500">Add</p>
