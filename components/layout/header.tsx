@@ -19,7 +19,10 @@ export default function LayoutHeader() {
             </div> 
             <div className='px-6'>
                 <Input type="search" variant='bordered' radius='lg' label="Search" 
-                classNames={{inputWrapper: ['dark:border-slate-800']}}/>
+                classNames={{
+                    inputWrapper: ['dark:border-slate-800'],
+                    innerWrapper: ['dark:text-slate-200']
+                    }}/>
             </div>
             <div className='px-4'>
                 <NavLink />

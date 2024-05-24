@@ -25,7 +25,10 @@ export default function CardHeader(props: any) {
                     <p className='font-geo text-sm text-slate-500'>Filters</p>
                 </button> */}
                 <FilterBtn />
-                <Input type="search" variant='bordered' radius='lg' label="Search" className='w-72 h-10 dark:border-slate-800'/>
+                <Input type="search" variant='bordered' radius='lg' label="Search" className='w-72 h-10 dark:border-slate-800' classNames={{
+                    inputWrapper: ['dark:border-slate-800'],
+                    innerWrapper: ['dark:text-slate-200']
+                }} labelPlacement='outside'/>
             </div>
         </div>
     )

@@ -32,12 +32,12 @@ export default function MemberDetailHeader({member}: any) {
                 <div className="flex gap-6">
                     <Avatar showFallback className="w-20 h-20 md:w-40 md:h-40" src={imageURL}/>
                     <div className="flex flex-col justify-center">
-                        <h1 className="text-3xl font-brico">{member.firstName} {member.lastName}</h1>
+                        <h1 className="text-3xl font-brico dark:text-slate-200">{member.firstName} {member.lastName}</h1>
                         <h2 className="text-base font-geo text-slate-400">{member.email}</h2>
                     </div>
                 </div>
                 <div className="flex gap-3 font-geo items-center">
-                    <Button onPress={onOpen} variant="bordered" className="border-1 rounded-2xl">Delete</Button>
+                    <Button onPress={onOpen} variant="bordered" className="border-1 rounded-2xl dark:text-slate-200">Delete</Button>
                     <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
                         <ModalContent>
                             {(onClose) => (
