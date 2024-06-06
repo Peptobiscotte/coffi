@@ -8,7 +8,7 @@ import columnSvg from '@/public/columns-03.svg'
 import Image from "next/image";
 
 export default function Header(props:any) {
-    const { members } = props
+    const { members, user } = props
     const [isPressed, setIsPressed] = useState(1)
     const [isPressed1, setIsPressed1] = useState(4)
 
@@ -29,9 +29,12 @@ export default function Header(props:any) {
                     <h1 className="font-brico text-3xl dark:text-slate-200">Agenda</h1>
                     <h2 className="font-geo text-slate-400">Create & organize your cowork events</h2>
                 </div>
-                <div>
-                    <EventModal members={members}/>
-                </div>
+                {user.role === 'admin' ? 
+                    <div>
+                        <EventModal members={members}/>
+                    </div>
+                    : ''                
+                }
             </div>
             <div className="flex justify-between">
                 <div>

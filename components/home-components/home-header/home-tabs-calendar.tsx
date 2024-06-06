@@ -1,6 +1,7 @@
 import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
 import calendarSvg from '../../../public/calendar.svg'
 import Image from "next/image";
+import {Calendar} from "@nextui-org/react";
 
 export default function HomeTabCalendar() {
     return (
@@ -12,10 +13,9 @@ export default function HomeTabCalendar() {
             </Button>
           </PopoverTrigger>
           <PopoverContent>
-            <div className="px-1 py-2">
-              <div className="text-small font-bold">Calendar</div>
-              <div className="text-tiny">Insert calendar here</div>
-            </div>
+              <Calendar aria-label="Date (No Selection)" className="p-0"/>
+              {/* <div className="text-small font-bold">Calendar</div>
+              <div className="text-tiny">Insert calendar here</div> */}
           </PopoverContent>
         </Popover>
       );
