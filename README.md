@@ -2,7 +2,9 @@
 
 Welcome to coffi, a co-working management dashboard webapp I coded to showcase my current progress in learning software development.
 
-First, have a look here [coffi-ten.vercel.app](https://coffi-ten.vercel.app/)
+First, have a look here [coffi-ten.vercel.app](https://coffi-ten.vercel.app/) 
+
+log in with prefill credentials to access admin mode or with github for user mode.
 
 ## Stack
 

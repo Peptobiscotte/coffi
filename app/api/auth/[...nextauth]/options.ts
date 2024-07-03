@@ -26,11 +26,13 @@ export const options: NextAuthOptions = {
                 username: {
                     label: 'Username:',
                     type: 'text',
+                    value: 'Max',
                     placeholder: 'your-username'
                 },
                 password: {
                     label: 'Password:',
                     type: 'password',
+                    value: 'Pepto',
                     placeholder: 'your-password'
                 }
             },
